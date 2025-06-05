@@ -1,0 +1,92 @@
+.inicio {
+    font-family: 'Segoe UI', sans-serif;
+    color: #111111;
+    background-color: #ffffff;
+    padding: 2rem;
+}
+
+.bienvenida {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.bienvenida h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.bienvenida p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.btn-principal {
+    background-color: #111111;
+    color: #f6e4b5;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.caracteristicas {
+    margin-bottom: 4rem;
+}
+
+.caracteristicas h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.caracteristicas-grid {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.caracteristica {
+    text-align: center;
+    margin: 1rem;
+}
+
+.caracteristica img {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 1rem;
+}
+
+.promociones {
+    margin-bottom: 4rem;
+}
+
+.promociones h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.promociones-grid {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.promocion {
+    text-align: center;
+    margin: 1rem;
+    max-width: 300px;
+}
+
+.promocion img {
+    width: 100%;
+    border-radius: 6px;
+    margin-bottom: 1rem;
+}
+
+.btn-secundario {
+    background-color: #f6e4b5;
+    color: #111111;
+    padding: 8px 16px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+}
