@@ -1,0 +1,193 @@
+.contacto {
+    padding: 4rem 2rem;
+    background-color: #fff;
+    color: #14244c;
+    /* color azul de tu paleta */
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.contacto-contenido {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: space-between;
+    margin-bottom: 3rem;
+}
+
+.contacto-texto {
+    flex: 1 1 300px;
+}
+
+.contacto-texto h2 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: #14244c;
+}
+
+.contacto-texto p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #333;
+}
+
+.contacto-formulario {
+    flex: 2 1 600px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.contacto-formulario .fila {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.contacto-formulario input,
+.contacto-formulario textarea {
+    padding: 0.9rem;
+    border: none;
+    background-color: #f8f8f8;
+    flex: 1;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.95rem;
+    color: #333;
+    border-radius: 3px;
+    min-width: 200px;
+}
+
+.contacto-formulario textarea {
+    resize: vertical;
+    height: 100px;
+    flex: 2;
+}
+
+.btn-enviar {
+    margin-top: 1.5rem;
+    align-self: center;
+    padding: 0.9rem 2.5rem;
+    background-color: #eac278;
+    /* color naranja claro */
+    color: white;
+    border: none;
+    font-weight: bold;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.btn-enviar:hover {
+    background-color: #c4953d;
+    /* naranja oscuro */
+}
+
+.contacto-info {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 2rem;
+    font-size: 0.95rem;
+    color: #14244c;
+    text-align: center;
+}
+
+.contacto-info p {
+    margin: 0.3rem 0;
+}
+
+.icono-mapa {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background: url('https://cdn-icons-png.flaticon.com/512/535/535239.png') no-repeat center center;
+    background-size: contain;
+    margin-bottom: 0.3rem;
+}
+
+.contacto-datos {
+    text-align: center;
+    background-color: #ffffff;
+    color: #14244c;
+    padding: 2rem 1rem 0.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.contacto-datos div p {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.contacto-datos strong {
+    color: #14244c;
+    font-weight: 600;
+}
+
+.contacto-mapa {
+    width: 100%;
+    margin: 1.5rem auto 3rem;
+    max-width: 1000px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+    .contacto {
+        padding: 2rem 1rem;
+    }
+
+    .contacto-contenido {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .contacto-texto,
+    .contacto-formulario {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
+
+    .contacto-formulario .fila {
+        flex-direction: column;
+    }
+
+    .contacto-formulario input,
+    .contacto-formulario textarea {
+        width: 100%;
+        min-width: unset;
+    }
+
+    .terminos {
+        flex-direction: row;
+        justify-content: flex-start;
+        padding-left: 0;
+        font-size: 0.9rem;
+    }
+
+    .contacto-info {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+
+    .contacto-mapa {
+        width: 100%;
+        height: auto;
+        margin: 2rem 0;
+    }
+
+    iframe {
+        height: 300px;
+    }
+
+    .btn-enviar {
+        width: 100%;
+        max-width: 220px;
+    }
+}
+

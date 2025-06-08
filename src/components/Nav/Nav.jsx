@@ -8,15 +8,27 @@ const Nav = () => {
 			</div>
 			<i id="menu" class='bx bx-menu'></i>
 			<div id="nav__desktop">
-				<Link to="/">Inicio</Link>
-				<Link to="/Hotel">Hoteles</Link>
-				<Link to="/">Servicios</Link>
-				<Link to="/">Habitaciones</Link>
-				<Link to="/login">Iniciar Sesion</Link>
-				<Link to="/register" >Registrarse</Link>
+				<Link to={"/"} >
+					<a href="">Inicio</a>
+				</Link>
+				<Link to={"/servicios"} >
+					<a href="">Servicios</a>
+				</Link>
+				<Link to={"/"} >
+					<a href="">Habitaciones</a>
+				</Link>
+				<Link to={"/contacto"} >
+					<a href="">Contacto</a>
+				</Link>
+				<Link to={"/login"} >
+					<a href="">Iniciar Sesión</a>
+				</Link>
+				<Link to={"/register"} >
+					<a href="">Registrarse</a>
+				</Link>
 			</div>
 		</nav >
 	);
-}; 
+};
 
 export default Nav;

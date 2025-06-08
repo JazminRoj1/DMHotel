@@ -6,13 +6,15 @@ import "./style.css"
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Register from './views/Register/Register'
 import Login from './views/Login/Login'
-import Hotel from './views/Hotel/Hotel'  
+import Servicios from './views/Servicios/Servicios'
+import Contacto from './views/Contacto/Contacto'
 
 const router = createBrowserRouter([
   {path:"/", element: <DMHotels />},
-  {path:"/Hotel", element: <Hotel />},
+  {path:"/servicios", element: <Servicios />},
+  {path:"/contacto", element: <Contacto />},
   {path:"/login", element: <Login />},
-  {path:"/register", element: <Register />}
+  {path:"/register", element: <Register />},
 ])
 
 ReactDOM.createRoot(document.getElementById('root')).render(

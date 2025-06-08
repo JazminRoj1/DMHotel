@@ -1,6 +1,6 @@
 .footer {
-    background-color: #111111;
-    color: #f6e4b5;
+    background-color: var(--color-blue);
+    color: white;
     padding: 3rem 1.5rem;
     font-family: 'Segoe UI', sans-serif;
 }
@@ -28,14 +28,14 @@
 .social-title {
     margin-bottom: 0.8rem;
     font-size: 1.1rem;
-    color: #f6e4b5;
+    color: white;
 }
 
 .footer-block p,
 .footer-block li,
 .footer-block a {
     font-size: 0.95rem;
-    color: #f6e4b5;
+    color: white;
 }
 
 .footer-block ul {
@@ -49,13 +49,13 @@
 }
 
 .footer-block ul li a {
-    color: #f6e4b5;
+    color: white;
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
 .footer-block ul li a:hover {
-    color: #ffe391;
+    color: var(--color-naranja);
 }
 
 .footer-social {
@@ -67,8 +67,8 @@
 
 .footer-social i {
     font-size: 1.3rem;
-    color: #f6e4b5;
-    border: 1px solid #f6e4b5;
+    color: white;
+    border: 1px solid white;
     border-radius: 50%;
     padding: 0.5rem;
     transition: transform 0.3s, background 0.3s;
@@ -77,16 +77,16 @@
 
 .footer-social i:hover {
     transform: scale(1.15);
-    background-color: #f6e4b5;
-    color: #111111;
+    background-color: white;
+    color: var(--color-blue);
 }
 
 .footer-bottom {
     text-align: center;
     margin-top: 2.5rem;
     font-size: 0.85rem;
-    color: #aaaaaa;
-    border-top: 1px solid #333;
+    color: white;
+    border-top: 1px solid var(--color-naranja);
     padding-top: 1.2rem;
 }
 
