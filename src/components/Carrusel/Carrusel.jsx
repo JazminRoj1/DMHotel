@@ -1,7 +1,7 @@
-// Carrusel.jsx
+
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import './Carrusel.css';
+import './Carrusel.css'; 
 
 const imagesByRoute = {
   '/': [
