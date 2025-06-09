@@ -7,12 +7,9 @@
 /* GLOBAL */
 
 html {
-    --color-blue: #111111;
-    /* fondo oscuro suave */
-    --color-naranja: #f6e4b5;
-    /* crema clara */
-    --color-naranja-oscuro: #ffe391;
-    /* dorado brillante para hover */
+    --color-blue: #14244c;
+    --color-naranja: #eac278;
+    --color-naranja-oscuro: #c4953d;
 }
 
 h1,
@@ -23,8 +20,6 @@ input,
 label,
 a {
     font-family: "Poppins", sans-serif;
-    color: var(--color-naranja);
-    /* texto crema por defecto */
 }
 
 input[type=password],
@@ -32,10 +27,8 @@ input[type=text],
 input[type=email] {
     width: 100%;
     margin-bottom: 1rem;
-    border: 1px solid #999;
+    border: 1px solid rgb(189, 189, 189);
     padding: 8px 5px;
-    background-color: #1a1a1a;
-    color: var(--color-naranja);
     outline: none;
 }
 
@@ -45,12 +38,8 @@ label {
 
 a {
     text-decoration: none;
-    color: var(--color-naranja);
+    color: white;
     transition: 0.3s;
-}
-
-a:hover {
-    color: var(--color-naranja-oscuro);
 }
 
 /* UTILITIES */
@@ -58,7 +47,7 @@ a:hover {
 .button {
     padding: 8px 35px;
     border: none;
-    color: #111111;
+    color: white;
     background-color: var(--color-naranja);
     border-radius: 5px;
     font-weight: 600;
@@ -68,7 +57,6 @@ a:hover {
 
 .button:hover {
     background-color: var(--color-naranja-oscuro);
-    color: #111111;
 }
 
 .nav {
@@ -90,7 +78,7 @@ a:hover {
 }
 
 .nav div a:hover {
-    color: var(--color-naranja-oscuro);
+    color: var(--color-naranja);
 }
 
 #nav__desktop {
@@ -99,12 +87,12 @@ a:hover {
 
 #menu {
     font-size: 2rem;
-    color: var(--color-naranja);
+    color: white;
 }
 
 .header__login {
     background-color: var(--color-blue);
-    color: var(--color-naranja);
+    color: white;
     text-align: center;
     padding: 30px;
 }
@@ -171,7 +159,7 @@ a:hover {
     }
 
     .form__register-contenedor div:nth-child(1) {
-        border-right: 1px solid #444;
+        border-right: 1px solid black;
         padding-right: 30px;
     }
 

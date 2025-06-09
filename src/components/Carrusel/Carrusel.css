@@ -1,0 +1,126 @@
+.carousel {
+    position: relative;
+    height: 90vh;
+    overflow: hidden;
+}
+
+.slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.slide.active {
+    opacity: 1;
+    z-index: 1;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    z-index: 2;
+    padding: 1rem;
+}
+
+.overlay h1 {
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+    line-height: 1.3;
+}
+
+.overlay p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    max-width: 90%;
+}
+
+.btn-book {
+    background-color: var(--color-naranja, #eac278);
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: background 0.3s ease;
+    font-size: 1rem;
+}
+
+.btn-book span {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: transform 0.3s ease;
+}
+
+.btn-book:hover {
+    background-color: var(--color-naranja-oscuro, #c4953d);
+}
+
+.btn-book:hover span {
+    transform: translateX(4px);
+}
+
+.flecha-icon {
+    width: 18px;
+    height: 18px;
+    filter: brightness(0) invert(1);
+}
+
+
+@media (min-width: 768px) {
+    .overlay h1 {
+        font-size: 3rem;
+    }
+
+    .overlay p {
+        font-size: 1.2rem;
+        max-width: 700px;
+    }
+
+    .btn-book {
+        font-size: 1.1rem;
+    }
+
+    .flecha-icon {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .overlay h1 {
+        font-size: 3.5rem;
+    }
+
+    .overlay p {
+        font-size: 1.3rem;
+    }
+
+    .btn-book {
+        font-size: 1.15rem;
+        padding: 1rem 2rem;
+    }
+
+    .flecha-icon {
+        width: 22px;
+        height: 22px;
+    }
+}

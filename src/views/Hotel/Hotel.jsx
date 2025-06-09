@@ -1,10 +1,7 @@
 import "./Hotel.css";
 import Nav from "../../components/Nav/Nav";
-import Footer from "../../components/Footer/Footer.jsx";
-import imgArequipa1 from '../../img/dm-hoteles-peru-arequipa-instalaciones-4.jpg';
-import imgAsia1 from '../../img/dm-hoteles-peru-asia-sarapampa.jpg';
-import imgMoquegua1 from '../../img/dm-hoteles-hotel-dm-moquegua.jpeg';
-import imgCusco1 from '../../img/dm-hoteles-peru-cusco.jpg';
+import Carrusel from "../../components/Carrusel/Carrusel.jsx";
+import Footer from "../../components/Footer/Footer";
 
 const hoteles = [
   {
@@ -37,6 +34,7 @@ const Hotel = () => {
   return (
     <>
       <Nav />
+      <Carrusel />
       <section className="hoteles-destacados">
         <h2>HOTELES</h2>
         <div className="hoteles-grid">

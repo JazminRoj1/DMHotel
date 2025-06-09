@@ -11,7 +11,8 @@ import Habitaciones from "./views/Habitaciones/Habitacion";
 
 const router = createBrowserRouter([
   {path:"/", element: <DMHotels />},
-  {path:"/Hotel", element: <Hotel />},
+  {path:"/servicios", element: <Servicios />},
+  {path:"/contacto", element: <Contacto />},
   {path:"/login", element: <Login />},
   {path:"/register", element: <Register />},
   {path:"/habitaciones", element: <Habitaciones />}

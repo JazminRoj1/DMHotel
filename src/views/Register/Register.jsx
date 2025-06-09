@@ -29,14 +29,15 @@ const Register = () => {
 						<label htmlFor="">Password</label>
 						<input type="password" />
 
-						<label htmlFor="">Telefono</label>
+						<label htmlFor="">Teléfono</label>
 						<input type="text" />
 					</div>
 				</div>
 
 				<input className="button" type="submit" value="Create" />
 			</form>
-			<Footer /> 
+			
+			<Footer />
 		</div>
 	);
 };
