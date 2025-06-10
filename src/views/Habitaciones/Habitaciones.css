@@ -118,19 +118,6 @@
     flex-grow: 1;
 }
 
-.habitacion-card h3 {
-    font-size: 1.2rem 19.2px;
-    margin-bottom: 0.6rem;
-    color: #111111;
-    font-weight: 600;
-}
-
-.habitacion-card p {
-    font-size: 0.95rem;
-    color: #333333;
-    line-height: 1.5;
-}
-
 /* Estilos generales de la sección */
 .habitaciones-destacadas {
     padding: 2rem;

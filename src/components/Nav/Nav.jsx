@@ -14,7 +14,7 @@ const Nav = () => {
 				<Link to={"/servicios"} >
 					<a href="">Servicios</a>
 				</Link>
-				<Link to={"/"} >
+				<Link to={"/habitaciones"} >
 					<a href="">Habitaciones</a>
 				</Link>
 				<Link to={"/contacto"} >

@@ -1,1 +1,1 @@
-export { default as Habitacion } from './Habitacion';
+export { default as Habitaciones } from './Habitaciones';
