@@ -10,6 +10,7 @@ import Login from './views/Login/Login'
 import Servicios from './views/Servicios/Servicios'
 import Contacto from './views/Contacto/Contacto'
 import Habitaciones from './views/Habitaciones/Habitaciones'
+import Reservas from "./views/Reservas/Reservas"
 
 const router = createBrowserRouter([
   {path:"/", element: <DMHotels />},
@@ -18,6 +19,7 @@ const router = createBrowserRouter([
   {path:"/login", element: <Login />},
   {path:"/register", element: <Register />},
   {path:"/habitaciones", element: <Habitaciones />},
+  {path:"/Reservas", element: <Reservas />},
 ])
 
 ReactDOM.createRoot(document.getElementById('root')).render(

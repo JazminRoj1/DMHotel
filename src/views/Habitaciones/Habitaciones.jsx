@@ -3,6 +3,7 @@ import Nav from "../../components/Nav/Nav"
 import Footer from "../../components/Footer/Footer.jsx"
 import Carrusel from "../../components/Carrusel/Carrusel.jsx"
 import { useState, useEffect } from "react"
+import { Link } from 'react-router-dom';
 
 
 const habitaciones = [
@@ -12,7 +13,6 @@ const habitaciones = [
         imagenes: ["https://lacasonadelolivo.com.pe/wp-content/uploads/2020/03/hotel-3-estrellas-con-2-camas.jpg",
             "https://www.hotelmayucusco.com/wp-content/uploads/habitacion-doble-superior-10.webp",
             "https://image-tc.galaxy.tf/wijpeg-8l5lyyrd03o9e5ri84dh95iyh/doubledeluxe1_wide.jpg?crop=0%2C58%2C1800%2C1013"],
-        link: "",
         sedes: ['moquegua', 'arequipa', 'lima']
     },
     {
@@ -21,7 +21,6 @@ const habitaciones = [
         imagenes: ["https://lacasonadelolivo.com.pe/wp-content/uploads/2020/03/hotel-3-estrellas-con-2-camas.jpg",
             "https://www.hotelmayucusco.com/wp-content/uploads/habitacion-doble-superior-10.webp",
             "https://image-tc.galaxy.tf/wijpeg-8l5lyyrd03o9e5ri84dh95iyh/doubledeluxe1_wide.jpg?crop=0%2C58%2C1800%2C1013"],
-        link: "",
         sedes: ['moquegua', 'arequipa', 'lima']
 
     },
@@ -31,8 +30,7 @@ const habitaciones = [
         imagenes: ["https://lacasonadelolivo.com.pe/wp-content/uploads/2020/03/hotel-3-estrellas-con-2-camas.jpg",
             "https://www.hotelmayucusco.com/wp-content/uploads/habitacion-doble-superior-10.webp",
             "https://image-tc.galaxy.tf/wijpeg-8l5lyyrd03o9e5ri84dh95iyh/doubledeluxe1_wide.jpg?crop=0%2C58%2C1800%2C1013"],
-        link: "",
-        sedes: ['moquegua', 'arequipa', 'lima','tarapoto']
+        sedes: ['moquegua', 'arequipa', 'lima', 'tarapoto']
 
     },
     {
@@ -41,7 +39,6 @@ const habitaciones = [
         imagenes: ["https://lacasonadelolivo.com.pe/wp-content/uploads/2020/03/hotel-3-estrellas-con-2-camas.jpg",
             "https://www.hotelmayucusco.com/wp-content/uploads/habitacion-doble-superior-10.webp",
             "https://image-tc.galaxy.tf/wijpeg-8l5lyyrd03o9e5ri84dh95iyh/doubledeluxe1_wide.jpg?crop=0%2C58%2C1800%2C1013"],
-        link: "",
         sedes: ['moquegua', 'arequipa']
     }
 ];
@@ -140,14 +137,17 @@ const Habitaciones = () => {
                                         <li key={index}>{sede.toUpperCase()}</li>
                                     ))}
                                 </ul>
-                                <a
-                                    href={habitacion.link}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="btn-rojo"
-                                >
-                                    RESERVAR
-                                </a>
+                                <Link to={"/Reservas"}>
+                                    <a
+                                        href=""
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="btn-rojo"
+                                    >
+                                        RESERVAR
+                                    </a>
+                                </Link>
+
                             </div>
                         </div>
                     ))}
