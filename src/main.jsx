@@ -10,7 +10,7 @@ import Login from './views/Login/Login'
 import Servicios from './views/Servicios/Servicios'
 import Contacto from './views/Contacto/Contacto'
 import Habitaciones from './views/Habitaciones/Habitaciones'
-import Reservas from "./views/Reservas/Reservas"
+import Reservas from "./views/ReservasForm/Reservas"
 
 const router = createBrowserRouter([
   {path:"/", element: <DMHotels />},
