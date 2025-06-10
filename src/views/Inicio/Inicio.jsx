@@ -1,4 +1,5 @@
 import './Inicio.css';
+import { Link } from 'react-router-dom';
 
 const Inicio = () => {
   return (
@@ -60,7 +61,7 @@ const Inicio = () => {
           </div>
         </div>
 
-        <button className="btn-book">
+        <Link to="/servicios" className="btn-book">
           <span>
             VER SERVICIOS
             <img
@@ -69,7 +70,7 @@ const Inicio = () => {
               className="flecha-icon"
             />
           </span>
-        </button>
+        </Link>
       </section>
 
       <section className="promociones">
@@ -150,22 +151,24 @@ const Inicio = () => {
         </section>
 
         <section className="testimonios">
-          <h2>Lo que dicen nuestros huéspedes</h2>
+          <h2 className="testimonios-titulo">Opiniones de nuestros huéspedes</h2>
           <div className="testimonio-grid">
-
             <div className="testimonio">
-              <p>"Todo estuvo impecable. La atención fue excelente y el lugar muy limpio."</p>
-              <span>— Laura G.</span>
+              <h3>Ruta Babylon</h3>
+              <p>Las habitaciones son super acogedoras con detalles cuidados, iluminación, tv y hasta mantas térmicas en las camas acompañadas por chocolate con sal.</p>
+              <div className="estrellas">⭐⭐⭐⭐⭐</div>
             </div>
 
             <div className="testimonio">
-              <p>"El servicio fue rápido, el personal muy amable y el ambiente relajante."</p>
-              <span>— Martín R.</span>
+              <h3>Carmen</h3>
+              <p>Llegué después de hacer el tour al Salar de Uyuni, fue una experiencia inolvidable. Cuando regresas al pueblo, poder descansar en un hotel como este es un verdadero lujo.</p>
+              <div className="estrellas">⭐⭐⭐⭐⭐</div>
             </div>
 
             <div className="testimonio">
-              <p>"Me encantó la piscina y el buffet. Volvería sin dudarlo con mi familia."</p>
-              <span>— Andrea C.</span>
+              <h3>Carol</h3>
+              <p>Las instalaciones son geniales, venía de unos días afectada por la altura y aquí pude relajarme, desayunar bien y dormir perfectamente. Lo recomiendo 100%.</p>
+              <div className="estrellas">⭐⭐⭐⭐⭐</div>
             </div>
 
           </div>

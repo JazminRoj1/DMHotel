@@ -1,7 +1,6 @@
-
 import React, { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
-import './Carrusel.css'; 
+import { useLocation, Link } from 'react-router-dom';
+import './Carrusel.css';
 
 const imagesByRoute = {
   '/': [
@@ -16,7 +15,6 @@ const imagesByRoute = {
     'https://dmhoteles.pe/wp-content/uploads/2019/06/dm-hoteles-peru-arequipa-instalaciones-2.jpg'
   ],
 };
-
 
 const Carrusel = () => {
   const location = useLocation();
@@ -48,15 +46,16 @@ const Carrusel = () => {
       <div className="overlay">
         <h1>ABRE LA PUERTA A TU PRÓXIMO <br /><strong>GRAN RECUERDO</strong></h1>
         <p>Descansa, conecta y déjate llevar. Porque todo lo bueno comienza aquí.</p>
-        <button className="btn-book">
-          <span>VER HABITACIONES
+        <Link to="/habitaciones" className="btn-book">
+          <span>
+            VER HABITACIONES
             <img
               src="https://cdn1.iconfinder.com/data/icons/arrows-vol-1-5/24/Right_arrow-512.png"
               alt="flecha"
               className="flecha-icon"
             />
           </span>
-        </button>
+        </Link>
       </div>
     </div>
   );
