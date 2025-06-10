@@ -6,6 +6,7 @@ import "./style.css"
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Register from './views/Register/Register'
 import Login from './views/Login/Login'
+
 import Servicios from './views/Servicios/Servicios'
 import Contacto from './views/Contacto/Contacto'
 import Habitaciones from './views/Habitaciones/Habitaciones'
