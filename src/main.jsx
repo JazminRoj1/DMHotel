@@ -11,6 +11,7 @@ import Servicios from './views/Servicios/Servicios'
 import Contacto from './views/Contacto/Contacto'
 import Habitaciones from './views/Habitaciones/Habitaciones'
 import Reservas from "./views/ReservasForm/Reservas"
+import ReservasList from "./views/ReservasList/ReservasList"
 
 const router = createBrowserRouter([
   {path:"/", element: <DMHotels />},
@@ -20,6 +21,7 @@ const router = createBrowserRouter([
   {path:"/register", element: <Register />},
   {path:"/habitaciones", element: <Habitaciones />},
   {path:"/Reservas", element: <Reservas />},
+  {path:"/ReservasList", element: <ReservasList />},
 ])
 
 ReactDOM.createRoot(document.getElementById('root')).render(
