@@ -8,6 +8,7 @@ import Register from './views/Register/Register'
 import Login from './views/Login/Login'
 import Servicios from './views/Servicios/Servicios'
 import Contacto from './views/Contacto/Contacto'
+import Habitaciones from './views/Habitaciones/Habitaciones'
 
 const router = createBrowserRouter([
   {path:"/", element: <DMHotels />},
@@ -15,6 +16,7 @@ const router = createBrowserRouter([
   {path:"/contacto", element: <Contacto />},
   {path:"/login", element: <Login />},
   {path:"/register", element: <Register />},
+  {path:"/habitaciones", element: <Habitaciones />},
 ])
 
 ReactDOM.createRoot(document.getElementById('root')).render(
