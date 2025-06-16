@@ -1,0 +1,126 @@
+.reservation-list-container {
+    padding: 0.5rem 1.5rem 1.5rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    font-family: "Poppins", sans-serif;
+    color: #111;
+    margin-top: -42px;
+    margin-left: -20px;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.contenido-derecha {
+    flex-grow: 1;
+    width: 100%;
+    padding: 1rem 2rem;
+    box-sizing: border-box;
+}
+
+.titulo-form {
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: #001f4d;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #f6e4b5;
+    padding-bottom: 0.3rem;
+    width: 100%;
+    text-align: left;
+}
+
+.reservations-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.2rem;
+    width: 100%;
+}
+
+.reservation-card {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    padding: 1rem 1.2rem;
+    font-size: 0.85rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.reservation-card.cancelled {
+    opacity: 0.65;
+    background-color: #f0f0f0;
+    border-left: 4px solid #ccc;
+}
+
+.reservation-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-bottom: 2px solid #f6e4b5;
+    padding-bottom: 0.4rem;
+}
+
+.reservation-header h5 {
+    margin: 0;
+    font-size: 1.1rem;
+    color: #001f4d;
+    flex-grow: 1;
+}
+
+.reservation-header .estado {
+    font-size: 0.7rem;
+    font-weight: 600;
+    background-color: #198754;
+    color: #fff;
+    padding: 0.25rem 0.7rem;
+    border-radius: 20px;
+    text-transform: uppercase;
+    margin-left: 0.5rem;
+}
+
+.reservation-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.detail-group {
+    display: flex;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+}
+
+.detail-label {
+    font-weight: 500;
+    min-width: 120px;
+    color: #495057;
+}
+
+.detail-value {
+    color: #212529;
+}
+
+.reservation-actions {
+    display: flex;
+    justify-content: flex-end;
+    border-top: 1px solid #eee;
+    padding-top: 0.5rem;
+}
+
+.btn-guardar {
+    background-color: #001f4d;
+    color: #ffffff;
+    padding: 0.45rem 1.2rem;
+    font-size: 0.8rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.btn-guardar:hover {
+    background-color: #f6e4b5;
+    color: #001f4d;
+}

@@ -1,0 +1,98 @@
+.perfil-usuario {
+    padding: 0.5rem 1rem 1rem 0.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    color: #111;
+    font-family: "Poppins", sans-serif;
+    margin-left: 0;
+}
+
+.titulo-perfil {
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: #001f4d;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #f6e4b5;
+    padding-bottom: 0.3rem;
+    width: 100%;
+    text-align: left;
+}
+
+.card-perfil {
+    margin-top: 0;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+    padding: 1.2rem 1.4rem;
+    max-width: 500px;
+    width: 100%;
+}
+
+.perfil-header {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-bottom: 1rem;
+}
+
+.foto-usuario {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    border: 2px solid #f6e4b5;
+    background-color: #fff;
+}
+
+.datos-usuario h3 {
+    margin: 0;
+    font-size: 0.95rem;
+    color: #001f4d;
+    font-weight: 500;
+}
+
+.email-usuario {
+    font-size: 0.75rem;
+    color: #666;
+    margin-top: 0.2rem;
+}
+
+.bloque-info {
+    background-color: #f9f9f9;
+    padding: 0.7rem 1rem;
+    border-left: 3px solid #f6e4b5;
+    margin-bottom: 1rem;
+    font-size: 0.8rem;
+    border-radius: 6px;
+}
+
+.titulo-bloque {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #001f4d;
+    margin-bottom: 0.3rem;
+}
+
+.botones-perfil {
+    display: flex;
+    gap: 0.6rem;
+    margin-top: 0.5rem;
+}
+
+.btn-editar,
+.btn-nueva-habitacion {
+    background-color: #001f4d;
+    color: #ffffff;
+    padding: 0.4rem 0.9rem;
+    font-size: 0.75rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.btn-editar:hover,
+.btn-nueva-habitacion:hover {
+    background-color: #f6e4b5;
+    color: #001f4d;
+}

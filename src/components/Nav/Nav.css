@@ -1,0 +1,75 @@
+.nav__login-icon-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0px;
+    font-size: 12px;
+    white-space: nowrap;
+    text-decoration: none;
+    color: white;
+    transition: color 0.3s ease;
+}
+
+.nav__login-icon-link .login-icon-image {
+    height: 40px;
+    width: auto;
+    filter: grayscale(100%) brightness(500%);
+    transition: filter 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.nav__login-icon-link:hover {
+    color: var(--color-naranja);
+}
+
+.nav__login-icon-link:hover .login-icon-image {
+    filter: grayscale(0%) brightness(100%) drop-shadow(0 0 5px rgba(255, 255, 255, 0.8));
+}
+/*Nuevo inicio de sesion*/
+.nav__usuario-hover-wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+}
+
+.nav__menu-flotante {
+    position: absolute;
+    top: calc(100% + 0.3px);
+    right: 0;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+    padding: 14px 16px;
+    /* 🔁 Aumenta el área clickeable */
+    display: flex;
+    flex-direction: column;
+    min-width: 180px;
+    z-index: 100;
+    transition: opacity 0.2s ease;
+    pointer-events: auto;
+    /* Asegura que el mouse registre bien la zona */
+}
+
+.nav__usuario-hover-wrapper {
+    padding-bottom: 10px;
+    /* 🛡️ Crea una zona invisible entre icono y globo */
+}
+
+.nav__menu-opcion {
+    background: none;
+    border: none;
+    padding: 8px 12px;
+    text-align: left;
+    text-decoration: none;
+    color: #333;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.2s ease;
+}
+
+.nav__menu-opcion:hover {
+    background-color: #f5f5f5;
+    color: #007bff;
+}
