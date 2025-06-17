@@ -1,0 +1,55 @@
+.perfil-container {
+    max-width: 500px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+    font-family: 'Poppins', sans-serif;
+}
+
+.perfil-container h2 {
+    text-align: center;
+    color: #111111;
+    margin-bottom: 25px;
+}
+
+.perfil-form label {
+    display: block;
+    margin-bottom: 15px;
+    color: #333;
+    font-weight: 500;
+}
+
+.perfil-form input {
+    width: 100%;
+    padding: 10px 15px;
+    margin-top: 5px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    transition: border-color 0.3s ease;
+    font-size: 14px;
+}
+
+.perfil-form input:focus {
+    outline: none;
+    border-color: #f6e4b5;
+}
+
+.btn-guardar {
+    width: 100%;
+    padding: 12px;
+    background-color: #111111;
+    color: #f6e4b5;
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 15px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-guardar:hover {
+    background-color: #333;
+}
