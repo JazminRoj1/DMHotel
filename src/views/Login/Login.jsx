@@ -6,12 +6,20 @@ import { useNavigate, Link } from "react-router-dom";
 import { useUsuario } from "../../components/Context/UsuarioContext.jsx"; // Importa el contexto del usuario
 
 // 🔧 Usuario temporal de prueba (borrar cuando se use backend real)
-const usuarioDePrueba = {
-  email: "jazmin@dmhoteles.com",
-  password: "123456",
-  nombres: "Jazmín"
-};
-
+const usuariosDePrueba = [
+  {
+    email: "jazmin@dmhoteles.com",
+    password: "123456",
+    nombres: "Jazmín",
+    rol: "user"
+  },
+  {
+    email: "admin@dmhoteles.com",
+    password: "1234",
+    nombres: "Admin Prueba",
+    rol: "admin"
+  }
+];
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -29,37 +37,21 @@ const Login = () => {
     }
 
     // 🔧 MODO TEMPORAL: acceso simulado sin backend (eliminar esta parte luego)
-    if (email === usuarioDePrueba.email && password === usuarioDePrueba.password) {
-      console.warn("🟡 Acceso simulado con usuario de prueba.");
-      alert("Inicio de sesión simulado.");
-      login(usuarioDePrueba);
-      navigate("/");
-      return;
-    }
+    const usuarioEncontrado = usuariosDePrueba.find(
+      (user) => user.email === email && user.password === password
+    );
 
-    // 🔒 MODO REAL: conexión con backend
-    try {
-      const response = await fetch("http://localhost:3000/api/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({ email, password })
-      });
-
-      const data = await response.json();
-
-      if (response.ok) {
-        alert("Inicio de sesión exitoso.");
-        login(data); // ← almacena usuario recibido del backend
-        navigate("/");
+    if (usuarioEncontrado) {
+      login(usuarioEncontrado);
+      if (usuarioEncontrado.rol === "admin") {
+        navigate("/admin");
       } else {
-        setError(data.mensaje || "Credenciales incorrectas.");
+        navigate("/"); // o cualquier ruta de usuario normal
       }
-    } catch (error) {
-      console.error("Error al conectar con la API:", error);
-      setError("No se pudo conectar con el servidor.");
+    } else {
+      setError("Credenciales incorrectas.");
     }
+
   };
 
   return (

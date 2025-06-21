@@ -1,3 +1,57 @@
+/* ===== VARIABLES ===== */
+:root {
+    --color-blue: #14244c;
+    --color-naranja: #eac278;
+    --color-naranja-oscuro: #c4953d;
+}
+
+/* ===== RESET LOCAL ===== */
+.nav,
+.nav * {
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+/* ===== NAV BARRA PRINCIPAL ===== */
+.nav {
+    background-color: var(--color-blue);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+}
+
+.nav__img {
+    border-radius: 0 0 20px 20px;
+    padding: 0 30px;
+    background-color: var(--color-naranja);
+}
+
+.nav img {
+    width: 50px;
+}
+
+#nav__desktop {
+    display: none;
+}
+
+#menu {
+    font-size: 2rem;
+    color: white;
+}
+
+/* Hover para enlaces del nav (desktop) */
+.nav div a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.nav div a:hover {
+    color: var(--color-naranja);
+}
+
+/* ===== ÍCONO DE USUARIO Y ENLACE ===== */
 .nav__login-icon-link {
     display: flex;
     flex-direction: column;
@@ -25,13 +79,15 @@
 .nav__login-icon-link:hover .login-icon-image {
     filter: grayscale(0%) brightness(100%) drop-shadow(0 0 5px rgba(255, 255, 255, 0.8));
 }
-/*Nuevo inicio de sesion*/
+
+/* ===== MENÚ FLOTANTE DE USUARIO ===== */
 .nav__usuario-hover-wrapper {
     position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
     cursor: pointer;
+    padding-bottom: 10px;
 }
 
 .nav__menu-flotante {
@@ -42,19 +98,12 @@
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
     padding: 14px 16px;
-    /* 🔁 Aumenta el área clickeable */
     display: flex;
     flex-direction: column;
     min-width: 180px;
     z-index: 100;
     transition: opacity 0.2s ease;
     pointer-events: auto;
-    /* Asegura que el mouse registre bien la zona */
-}
-
-.nav__usuario-hover-wrapper {
-    padding-bottom: 10px;
-    /* 🛡️ Crea una zona invisible entre icono y globo */
 }
 
 .nav__menu-opcion {
@@ -63,13 +112,48 @@
     padding: 8px 12px;
     text-align: left;
     text-decoration: none;
-    color: #333;
+    color: #343a40;
+    /* 🔵 Azul oscuro visible */
     cursor: pointer;
     font-size: 14px;
-    transition: background 0.2s ease;
+    font-weight: 600;
+    /* ✔ Negrita */
+    display: block;
+    /* Para ocupar todo el ancho si está en menú */
+    transition: color 0.2s ease;
+}
+
+.nav__menu-opcion:visited {
+    color: #343a40
 }
 
 .nav__menu-opcion:hover {
-    background-color: #f5f5f5;
-    color: #007bff;
+    color: #f6e4b5;
+    /* ✨ Crema en hover */
+}
+
+
+/* ===== MEDIA QUERY (DESKTOP) ===== */
+@media (min-width: 800px) {
+    #menu {
+        display: none;
+    }
+
+    #nav__desktop {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .nav {
+        padding: 0 100px;
+    }
+
+    .nav__img {
+        padding: 0 45px;
+    }
+
+    .nav img {
+        width: 55px;
+    }
 }

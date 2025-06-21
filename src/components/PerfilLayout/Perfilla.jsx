@@ -4,21 +4,26 @@ import Nav from "../Nav/Nav";
 import Footer from "../Footer/Footer";
 import PerfilUser from "../../views/PerfilUser/PerfilUser";
 import PerfilRes from "../../views/PerfilRes/PerfilRes";
-import PerfilServ from "../../views/PerfilServ/PerfilServ";
+import PerfilEven from "../../views/PerfilEven/PerfilEven.jsx";
 import PerfilEdit from "../../views/PerfilEdit/PerfilEdit";
 import { useUsuario } from "../../components/Context/UsuarioContext.jsx";
+
 
 const PerfilLayout = () => {
   const { usuario } = useUsuario(); // data
   const primerNombre = usuario?.nombres?.split(" ")[0] || "";
 
+  if (!usuario) {
+    return <div style={{ padding: "2rem", textAlign: "center" }}>Acceso no autorizado. Por favor inicia sesión.</div>;
+  }
+  
   const [vista, setVista] = useState('perfil');
   
   const renderContenido = () => {
     switch (vista) {
       case 'perfil': return <PerfilUser setVista={setVista} />;
       case 'reservas': return <PerfilRes />;
-      case 'servicios': return <PerfilServ />;
+      case 'eventos': return <PerfilEven />;
       case 'informacion': return <PerfilEdit />;
       
       default: return <div>Selecciona una opción</div>;
@@ -53,10 +58,10 @@ const PerfilLayout = () => {
         </button>
 
         <button
-          className={vista === 'servicios' ? 'active' : ''}
-          onClick={() => setVista('servicios')}
+          className={vista === 'eventos' ? 'active' : ''}
+          onClick={() => setVista('eventos')}
         >
-          Servicios
+          Eventos
         </button>
 
         </div>

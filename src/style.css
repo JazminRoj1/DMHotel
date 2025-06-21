@@ -1,64 +1,18 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-/* GLOBAL */
-
-html {
+/* ===== VARIABLES ===== */
+:root {
     --color-blue: #14244c;
     --color-naranja: #eac278;
     --color-naranja-oscuro: #c4953d;
 }
 
-h1,
-h2,
-h3,
-p,
-input,
-label,
-a {
+/* ===== RESET LOCAL ===== */
+.nav,
+.nav * {
+    box-sizing: border-box;
     font-family: "Poppins", sans-serif;
 }
 
-input[type=password],
-input[type=text],
-input[type=email] {
-    width: 100%;
-    margin-bottom: 1rem;
-    border: 1px solid rgb(189, 189, 189);
-    padding: 8px 5px;
-    outline: none;
-}
-
-label {
-    font-weight: 600;
-}
-
-a {
-    text-decoration: none;
-    color: white;
-    transition: 0.3s;
-}
-
-/* UTILITIES */
-
-.button {
-    padding: 8px 35px;
-    border: none;
-    color: white;
-    background-color: var(--color-naranja);
-    border-radius: 5px;
-    font-weight: 600;
-    transition: 0.3s;
-    cursor: pointer;
-}
-
-.button:hover {
-    background-color: var(--color-naranja-oscuro);
-}
-
+/* ===== NAV BARRA PRINCIPAL ===== */
 .nav {
     background-color: var(--color-blue);
     display: flex;
@@ -77,10 +31,6 @@ a {
     width: 50px;
 }
 
-.nav div a:hover {
-    color: var(--color-naranja);
-}
-
 #nav__desktop {
     display: none;
 }
@@ -90,39 +40,90 @@ a {
     color: white;
 }
 
-.header__login {
-    background-color: var(--color-blue);
+/* Hover para enlaces del nav (desktop) */
+.nav div a {
     color: white;
-    text-align: center;
-    padding: 30px;
+    text-decoration: none;
+    transition: color 0.3s ease;
 }
 
-.header__login h2 {
-    font-size: 2rem;
+.nav div a:hover {
+    color: var(--color-naranja);
 }
 
-.form__login {
-    max-width: 700px;
-    margin: auto;
-    padding: 50px 20px;
-}
-
-.form__login-button {
-    display: block;
-    margin: auto;
-}
-
-.form__register {
-    padding: 30px 25px;
-    max-width: 1200px;
-    margin: auto;
-}
-
-.form__register-contenedor {
+/* ===== ÍCONO DE USUARIO Y ENLACE ===== */
+.nav__login-icon-link {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    gap: 0px;
+    font-size: 12px;
+    white-space: nowrap;
+    text-decoration: none;
+    color: white;
+    transition: color 0.3s ease;
 }
 
+.nav__login-icon-link .login-icon-image {
+    height: 40px;
+    width: auto;
+    filter: grayscale(100%) brightness(500%);
+    transition: filter 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.nav__login-icon-link:hover {
+    color: var(--color-naranja);
+}
+
+.nav__login-icon-link:hover .login-icon-image {
+    filter: grayscale(0%) brightness(100%) drop-shadow(0 0 5px rgba(255, 255, 255, 0.8));
+}
+
+/* ===== MENÚ FLOTANTE DE USUARIO ===== */
+.nav__usuario-hover-wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    padding-bottom: 10px;
+}
+
+.nav__menu-flotante {
+    position: absolute;
+    top: calc(100% + 0.3px);
+    right: 0;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+    padding: 14px 16px;
+    display: flex;
+    flex-direction: column;
+    min-width: 180px;
+    z-index: 100;
+    transition: opacity 0.2s ease;
+    pointer-events: auto;
+}
+
+.nav__menu-opcion {
+    background: none;
+    border: none;
+    padding: 8px 12px;
+    text-align: left;
+    text-decoration: none;
+    color: #333;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.2s ease;
+}
+
+.nav__menu-opcion:hover {
+    background-color: #f5f5f5;
+    color: #007bff;
+}
+
+/* ===== MEDIA QUERY (DESKTOP) ===== */
 @media (min-width: 800px) {
     #menu {
         display: none;
@@ -144,26 +145,5 @@ a {
 
     .nav img {
         width: 55px;
-    }
-
-    .form__register {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 20px;
-        padding: 60px 25px;
-    }
-
-    .form__register-contenedor {
-        flex-direction: row;
-    }
-
-    .form__register-contenedor div:nth-child(1) {
-        border-right: 1px solid black;
-        padding-right: 30px;
-    }
-
-    .form__register-contenedor div:nth-child(2) {
-        padding-left: 30px;
     }
 }

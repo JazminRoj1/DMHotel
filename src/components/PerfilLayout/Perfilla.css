@@ -1,16 +1,16 @@
 /* Contenedor general: flex para alinear menú e info */
 .perfil-container {
     display: flex;
-    align-items: flex-start; /* ESTO ALINEA AMBAS SECCIONES ARRIBA */
+    align-items: flex-start;
     max-width: 1080px;
     margin: 2rem auto;
-    background-color: #ffffff;
-    border-radius: 12px;
-    padding: 2rem 2.5rem;
-    box-shadow: 0 0 18px rgba(0, 0, 0, 0.05);
     gap: 2rem;
     box-sizing: border-box;
-  }
+    background-color: transparent;
+    border-radius: 0;
+    padding: 0;
+    box-shadow: none;
+}
   
 
 /* Menú lateral izquierdo refinado */

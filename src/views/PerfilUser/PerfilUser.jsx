@@ -1,9 +1,11 @@
 import "./PerfilUser.css";
 import { useUsuario } from "../../components/Context/UsuarioContext.jsx";
+import { useNavigate } from "react-router-dom";
 
 const PerfilUser = ({ setVista }) => {
   const { usuario } = useUsuario(); // 🔗 Accede al usuario desde el contexto
   const primerNombre = usuario?.nombres?.split(" ")[0] || "";
+  const navigate = useNavigate();
 
   // 🧠 Lógica para calcular membresía según los puntos
   const puntos = usuario?.puntos || 0;
@@ -15,6 +17,13 @@ const PerfilUser = ({ setVista }) => {
   };
 
   const membresia = calcularMembresia(puntos); // 🏷️ Resultado final de membresía
+  
+  // 🔧 Simulación de una reserva reciente
+  const reservaReciente = {
+    habitacion: "Habitación Doble",
+    fecha: "2025-06-20",
+    estado: "Confirmada"
+  };
 
   return (
     <div className="perfil-usuario">
@@ -43,15 +52,30 @@ const PerfilUser = ({ setVista }) => {
 
         <div className="bloque-info">
           <h4 className="titulo-bloque">Historial de Reservas</h4>
-          <p>No hay reservas anteriores.</p>
+          {reservaReciente ? (
+            <div className="reserva-reciente">
+              <button className="btn-ver-detalles" onClick={() => setVista("reservas")}>
+                Ver detalles
+              </button>
+              <p><strong>Habitación:</strong> {reservaReciente.habitacion}</p>
+              <p><strong>Fecha:</strong> {reservaReciente.fecha}</p>
+              <p><strong>Estado:</strong> {reservaReciente.estado}</p>
+            </div>
+          ) : (
+            <p className="sin-reservas">No hay reservas anteriores.</p>
+          )}
         </div>
+
 
         <div className="botones-perfil">
           <button className="btn-editar" onClick={() => setVista('informacion')}>
             Editar Perfil
           </button>
 
-          <button className="btn-nueva-habitacion">+ Nueva Habitación</button>
+          <button className="btn-nueva-habitacion" onClick={() => navigate('/Reservas')}>
+            + Nueva Habitación
+          </button>
+
         </div>
       </div>
     </div>

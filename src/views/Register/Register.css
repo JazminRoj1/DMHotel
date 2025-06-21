@@ -1,3 +1,8 @@
+.form__register,
+.form__register * {
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
 .form__register {
     max-width: 1000px;
     margin: 40px auto 80px auto;

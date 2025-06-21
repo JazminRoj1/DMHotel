@@ -76,3 +76,13 @@ form.form__login {
     margin-bottom: 80px;
     /* Ajusta el valor según lo separado que lo quieras del footer */
 }
+:root {
+    --color-blue: #14244c;
+    --color-naranja: #eac278;
+    --color-naranja-oscuro: #c4953d;
+}
+
+.login-page-wrapper * {
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}

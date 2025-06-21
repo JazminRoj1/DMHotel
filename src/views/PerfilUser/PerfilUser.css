@@ -23,7 +23,6 @@
     margin-top: 0;
     background-color: #ffffff;
     border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
     padding: 1.2rem 1.4rem;
     max-width: 500px;
     width: 100%;
@@ -59,11 +58,11 @@
 
 .bloque-info {
     background-color: #f9f9f9;
-    padding: 0.7rem 1rem;
-    border-left: 3px solid #f6e4b5;
+    padding: 0.9rem 1rem;
     margin-bottom: 1rem;
     font-size: 0.8rem;
-    border-radius: 6px;
+    border-radius: 10px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
 }
 
 .titulo-bloque {
@@ -95,4 +94,46 @@
 .btn-nueva-habitacion:hover {
     background-color: #f6e4b5;
     color: #001f4d;
+}
+
+/* Bloque reserva mejorado */
+.reserva-reciente {
+    position: relative;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    padding: 0.9rem 1rem;
+    font-size: 0.78rem;
+    line-height: 1.4;
+    margin-top: 0.6rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+}
+
+.reserva-reciente p {
+    margin: 0.2rem 0;
+}
+
+.btn-ver-detalles {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.6rem;
+    background-color: #001f54;
+    color: white;
+    border: none;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    cursor: pointer;
+}
+
+.btn-ver-detalles:hover {
+    background-color: #003077;
+}
+
+.sin-reservas {
+    font-size: 0.8rem;
+    color: #555;
+    margin-top: 0.3rem;
 }

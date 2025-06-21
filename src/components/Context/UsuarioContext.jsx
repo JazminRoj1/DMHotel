@@ -1,19 +1,28 @@
+import { createContext, useState, useContext, useEffect } from "react";
 
-// src/context/UsuarioContext.jsx
-import { createContext, useState, useContext } from "react";
-
-// Creamos el contexto
 const UsuarioContext = createContext();
 
-// Hook personalizado para usar el contexto
 export const useUsuario = () => useContext(UsuarioContext);
 
-// Componente que provee el contexto
 export const UsuarioProvider = ({ children }) => {
   const [usuario, setUsuario] = useState(null);
 
-  const login = (usuarioData) => setUsuario(usuarioData);
-  const logout = () => setUsuario(null);
+  const login = (usuarioData) => {
+    setUsuario(usuarioData);
+    localStorage.setItem("usuario", JSON.stringify(usuarioData)); // 🔐 Guardar el usuario
+  };
+
+  const logout = () => {
+    setUsuario(null);
+    localStorage.removeItem("usuario"); // 🔐 Limpiar
+  };
+  
+  // ✅ Esto evita que se recuerde el login anterior
+  useEffect(() => {
+    localStorage.removeItem("usuario");
+    setUsuario(null);
+  }, []);
+
 
   return (
     <UsuarioContext.Provider value={{ usuario, login, logout }}>
@@ -21,3 +30,4 @@ export const UsuarioProvider = ({ children }) => {
     </UsuarioContext.Provider>
   );
 };
+
