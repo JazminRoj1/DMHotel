@@ -1,8 +1,12 @@
-import React, { useState, useEffect } from "react";
+"use client";
+
+import { useState, useEffect } from "react";
+import { roomsAPI } from "../../services/api";
 import "./Gestionhab.css";
 
 const Gestionhab = () => {
   const [habitaciones, setHabitaciones] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [modoEdicion, setModoEdicion] = useState(null);
   const [form, setForm] = useState({
     numero: "",
@@ -12,99 +16,156 @@ const Gestionhab = () => {
     estado: "disponible",
   });
   const [errores, setErrores] = useState({});
+  const [submitting, setSubmitting] = useState(false);
 
   useEffect(() => {
-    setHabitaciones([
-      { numero: "1010", tipo: "estandar", precio: 80, capacidad: 1, estado: "disponible", puntos: 10 },
-      { numero: "2020", tipo: "doble", precio: 120, capacidad: 2, estado: "ocupada", puntos: 20 },
-    ]);
+    fetchHabitaciones();
   }, []);
+
+  const fetchHabitaciones = async () => {
+    try {
+      setLoading(true);
+      const response = await roomsAPI.getAll();
+      if (response.data.success) {
+        setHabitaciones(response.data.data.rooms);
+      }
+    } catch (error) {
+      console.error("Error fetching rooms:", error);
+      alert("Error al cargar habitaciones");
+    } finally {
+      setLoading(false);
+    }
+  };
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
+    // Limpiar errores al cambiar
+    if (errores[e.target.name]) {
+      setErrores({ ...errores, [e.target.name]: "" });
+    }
   };
 
-const handleSubmit = (e) => {
-  e.preventDefault();
+  const validarFormulario = () => {
+    const nuevosErrores = {};
 
-  const nuevosErrores = {};
-  if (!/^[0-9]{4}$/.test(form.numero)) {
-    nuevosErrores.numero = "El número debe tener exactamente 4 dígitos.";
-  }
-  if (!form.tipo) nuevosErrores.tipo = "Selecciona un tipo de habitación.";
-  if (!form.precio) nuevosErrores.precio = "El precio es obligatorio.";
-  if (!form.capacidad) nuevosErrores.capacidad = "Selecciona una capacidad.";
+    if (!/^[0-9]{3,4}$/.test(form.numero)) {
+      nuevosErrores.numero = "El número debe tener 3-4 dígitos";
+    }
+    if (!form.tipo) nuevosErrores.tipo = "Selecciona un tipo de habitación";
+    if (!form.precio || Number.parseFloat(form.precio) <= 0) {
+      nuevosErrores.precio = "El precio debe ser mayor a 0";
+    }
+    if (!form.capacidad) nuevosErrores.capacidad = "Selecciona una capacidad";
 
-  if (Object.keys(nuevosErrores).length > 0) {
+    // Verificar número duplicado
+    const duplicada = habitaciones.some(
+      (h, i) => h.numero === form.numero && i !== modoEdicion
+    );
+    if (duplicada) {
+      nuevosErrores.numero = "Ya existe una habitación con ese número";
+    }
+
     setErrores(nuevosErrores);
-    return;
-  }
-
-  let puntos = 0;
-  switch (form.tipo.toLowerCase()) {
-    case "estandar": puntos = 10; break;
-    case "doble": puntos = 20; break;
-    case "triple": puntos = 30; break;
-    case "matrimonial": puntos = 40; break;
-    case "suite": puntos = 50; break;
-    default: puntos = 0;
-  }
-
-  const nueva = {
-    numero: form.numero,
-    tipo: form.tipo,
-    precio: parseFloat(form.precio).toFixed(2),
-    capacidad: parseInt(form.capacidad),
-    estado: form.estado,
-    puntos: puntos
+    return Object.keys(nuevosErrores).length === 0;
   };
 
-  const duplicada = habitaciones.some((h, i) => h.numero === nueva.numero && i !== modoEdicion);
-  if (duplicada) {
-    alert("Ya existe una habitación con ese número.");
-    return;
-  }
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-  if (modoEdicion !== null) {
-    const actualizadas = habitaciones.map((hab, i) => (i === modoEdicion ? nueva : hab));
-    setHabitaciones(actualizadas);
-  } else {
-    setHabitaciones([...habitaciones, nueva]);
-  }
+    if (!validarFormulario()) return;
 
-  setErrores({}); // ✅ Limpia errores visibles después de un submit válido
-  resetForm();    // ✅ Borra los datos del formulario
-};
+    setSubmitting(true);
 
+    try {
+      const roomData = {
+        numero: form.numero,
+        tipo: form.tipo,
+        precio: Number.parseFloat(form.precio),
+        capacidad: Number.parseInt(form.capacidad),
+        estado: form.estado,
+      };
+
+      if (modoEdicion !== null) {
+        // Actualizar habitación existente
+        const roomId = habitaciones[modoEdicion].id;
+        const response = await roomsAPI.update(roomId, roomData);
+        if (response.data.success) {
+          alert("Habitación actualizada exitosamente");
+          await fetchHabitaciones();
+          resetForm();
+        }
+      } else {
+        // Crear nueva habitación
+        const response = await roomsAPI.create(roomData);
+        if (response.data.success) {
+          alert("Habitación creada exitosamente");
+          await fetchHabitaciones();
+          resetForm();
+        }
+      }
+    } catch (error) {
+      console.error("Error saving room:", error);
+      if (error.response?.data?.message) {
+        alert(`Error: ${error.response.data.message}`);
+      } else {
+        alert("Error al guardar habitación");
+      }
+    } finally {
+      setSubmitting(false);
+    }
+  };
 
   const handleEditar = (index) => {
     const hab = habitaciones[index];
     setForm({
       numero: hab.numero,
-      tipo: hab.tipo.toLowerCase(),
-      precio: hab.precio,
+      tipo: hab.tipo,
+      precio: hab.precio.toString(),
       capacidad: hab.capacidad.toString(),
       estado: hab.estado,
     });
     setModoEdicion(index);
   };
 
-  const handleEliminar = (index) => {
-    if (window.confirm("¿Eliminar esta habitación?")) {
-      const nuevas = habitaciones.filter((_, i) => i !== index);
-      setHabitaciones(nuevas);
-      if (modoEdicion === index) resetForm();
+  const handleEliminar = async (index) => {
+    if (!window.confirm("¿Eliminar esta habitación?")) return;
+
+    try {
+      const roomId = habitaciones[index].id;
+      const response = await roomsAPI.delete(roomId);
+      if (response.data.success) {
+        alert("Habitación eliminada exitosamente");
+        await fetchHabitaciones();
+        if (modoEdicion === index) resetForm();
+      }
+    } catch (error) {
+      console.error("Error deleting room:", error);
+      if (error.response?.data?.message) {
+        alert(`Error: ${error.response.data.message}`);
+      } else {
+        alert("Error al eliminar habitación");
+      }
     }
   };
 
   const resetForm = () => {
-    setForm({ numero: "", tipo: "", precio: "", capacidad: "", estado: "disponible" });
+    setForm({
+      numero: "",
+      tipo: "",
+      precio: "",
+      capacidad: "",
+      estado: "disponible",
+    });
     setModoEdicion(null);
+    setErrores({});
   };
+
+  if (loading) return <div>Cargando habitaciones...</div>;
 
   return (
     <div className="contenedor-gestion">
       <h2>Gestión de Habitaciones</h2>
+
       <form className="form-nueva" onSubmit={handleSubmit} noValidate>
         <div className="campo-form">
           <input
@@ -127,7 +188,7 @@ const handleSubmit = (e) => {
             className={errores.tipo ? "input-error" : ""}
           >
             <option value="">Tipo de Habitación</option>
-            <option value="estandar">Estándar</option>
+            <option value="estándar">Estándar</option>
             <option value="doble">Doble</option>
             <option value="triple">Triple</option>
             <option value="matrimonial">Matrimonial</option>
@@ -143,11 +204,7 @@ const handleSubmit = (e) => {
             step="0.01"
             placeholder="Precio"
             value={form.precio}
-            oonChange={(e) => {
-              let value = e.target.value;
-              if (!/^\d{0,4}(\.\d{0,2})?$/.test(value)) return;
-              setForm({ ...form, precio: value });
-            }}            
+            onChange={handleChange}
             className={errores.precio ? "input-error" : ""}
           />
           {errores.precio && <span className="error">{errores.precio}</span>}
@@ -166,24 +223,34 @@ const handleSubmit = (e) => {
             <option value="3">3</option>
             <option value="4">4</option>
           </select>
-          {errores.capacidad && <span className="error">{errores.capacidad}</span>}
+          {errores.capacidad && (
+            <span className="error">{errores.capacidad}</span>
+          )}
         </div>
 
         <div className="campo-form">
           <select name="estado" value={form.estado} onChange={handleChange}>
             <option value="disponible">Disponible</option>
             <option value="ocupada">Ocupada</option>
+            <option value="mantenimiento">Mantenimiento</option>
           </select>
         </div>
 
         <div className="botones-form">
-          <button type="submit">{modoEdicion !== null ? "Actualizar" : "+ Nueva Habitación"}</button>
+          <button type="submit" disabled={submitting}>
+            {submitting
+              ? "Guardando..."
+              : modoEdicion !== null
+              ? "Actualizar"
+              : "+ Nueva Habitación"}
+          </button>
           {modoEdicion !== null && (
-            <button type="button" onClick={resetForm} className="btn-cancelar">Cancelar</button>
+            <button type="button" onClick={resetForm} className="btn-cancelar">
+              Cancelar
+            </button>
           )}
         </div>
       </form>
-
 
       {habitaciones.length === 0 ? (
         <p>No hay habitaciones registradas.</p>
@@ -196,22 +263,32 @@ const handleSubmit = (e) => {
               <th>Precio</th>
               <th>Capacidad</th>
               <th>Estado</th>
-              <th>Puntos</th>
               <th>Acciones</th>
             </tr>
           </thead>
           <tbody>
             {habitaciones.map((hab, i) => (
-              <tr key={i}>
+              <tr key={hab.id}>
                 <td>{hab.numero}</td>
-                <td>{hab.tipo.charAt(0).toUpperCase() + hab.tipo.slice(1).toLowerCase()}</td>
-                <td>${parseFloat(hab.precio).toFixed(2)}</td>
+                <td>{hab.tipo.charAt(0).toUpperCase() + hab.tipo.slice(1)}</td>
+                <td>${Number.parseFloat(hab.precio).toFixed(2)}</td>
                 <td>{hab.capacidad}</td>
-                <td><span className={`estado ${hab.estado}`}>{hab.estado}</span></td>
-                <td>{hab.puntos}</td>
                 <td>
-                  <button className="btn-editar" onClick={() => handleEditar(i)}>Editar</button>
-                  <button className="btn-eliminar" onClick={() => handleEliminar(i)}>Eliminar</button>
+                  <span className={`estado ${hab.estado}`}>{hab.estado}</span>
+                </td>
+                <td>
+                  <button
+                    className="btn-editar"
+                    onClick={() => handleEditar(i)}
+                  >
+                    Editar
+                  </button>
+                  <button
+                    className="btn-eliminar"
+                    onClick={() => handleEliminar(i)}
+                  >
+                    Eliminar
+                  </button>
                 </td>
               </tr>
             ))}

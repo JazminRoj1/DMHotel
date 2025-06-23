@@ -3,55 +3,65 @@ import Footer from "../../components/Footer/Footer.jsx";
 import "./Login.css";
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import { useUsuario } from "../../components/Context/UsuarioContext.jsx"; // Importa el contexto del usuario
-
-// 🔧 Usuario temporal de prueba (borrar cuando se use backend real)
-const usuariosDePrueba = [
-  {
-    email: "jazmin@dmhoteles.com",
-    password: "123456",
-    nombres: "Jazmín",
-    rol: "user"
-  },
-  {
-    email: "admin@dmhoteles.com",
-    password: "1234",
-    nombres: "Admin Prueba",
-    rol: "admin"
-  }
-];
+import { useAuth } from "../../context/AuthContext.jsx";
 const Login = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+  });
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
-  const { login,usuario } = useUsuario(); // This change allows you to use the login function from the context
+  const { login } = useAuth(); // Usar el contexto de autenticación
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
+    setError("");
 
-    if (!email || !password) {
+    // Validaciones básicas
+    if (!formData.email || !formData.password) {
       setError("Todos los campos son obligatorios.");
+      setLoading(false);
       return;
     }
 
-    // 🔧 MODO TEMPORAL: acceso simulado sin backend (eliminar esta parte luego)
-    const usuarioEncontrado = usuariosDePrueba.find(
-      (user) => user.email === email && user.password === password
-    );
-
-    if (usuarioEncontrado) {
-      login(usuarioEncontrado);
-      if (usuarioEncontrado.rol === "admin") {
-        navigate("/admin");
-      } else {
-        navigate("/"); // o cualquier ruta de usuario normal
-      }
-    } else {
-      setError("Credenciales incorrectas.");
+    if (!formData.email.includes("@")) {
+      setError("Por favor ingresa un email válido.");
+      setLoading(false);
+      return;
     }
 
+    // Intentar login con el backend
+    const result = await login(formData.email, formData.password);
+
+    if (result.success) {
+      // Redirigir según el rol del usuario
+      if (result.user.rol === "administrador") {
+        navigate("/admin");
+      } else {
+        navigate("/"); // Página principal para clientes
+      }
+    } else {
+      // Manejar errores específicos
+      if (result.message.includes("Credenciales inválidas")) {
+        setError("Email o contraseña incorrectos. Verifica tus datos.");
+      } else if (result.message.includes("Error de conexión")) {
+        setError("No se pudo conectar al servidor. Intenta más tarde.");
+      } else {
+        setError(result.message || "Error al iniciar sesión.");
+      }
+    }
+
+    setLoading(false);
   };
 
   return (
@@ -61,25 +71,33 @@ const Login = () => {
       <form className="form__login" onSubmit={handleSubmit}>
         <label>Email</label>
         <input
+          name="email"
           type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          value={formData.email}
+          onChange={handleChange}
+          placeholder="tu@email.com"
+          required
         />
 
         <label>Contraseña</label>
         <input
+          name="password"
           type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
+          value={formData.password}
+          onChange={handleChange}
+          placeholder="Tu contraseña"
+          required
         />
 
         {error && <small className="error">{error}</small>}
 
-        <input
+        <button
           className="form__login-button button"
           type="submit"
-          value="Iniciar Sesión"
-        />
+          disabled={loading}
+        >
+          {loading ? "Iniciando sesión..." : "Iniciar Sesión"}
+        </button>
 
         <p className="login-register-text">
           ¿No tienes una cuenta? <Link to="/register">Regístrate</Link>
