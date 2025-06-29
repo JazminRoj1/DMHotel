@@ -1,0 +1,121 @@
+.contenido-derecha {
+    padding: 0.5rem 1.5rem 1.5rem 1.5rem;
+    padding-bottom: 20rem;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+    margin: -1.5rem -1.5rem 0rem -1.5rem;
+    transition: all 0.3s ease;
+}
+
+/* Título */
+.titulo-form {
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: #0e1f50;
+    margin-bottom: 0.4rem;
+    border-bottom: 2px solid #fce6aa;
+    padding-bottom: 0.4rem;
+}
+
+/* Márgenes de texto y grid */
+.titulo-form + p {
+    margin-top: 0rem;
+    margin-bottom: 0.2rem;
+}
+
+.titulo-form + p + .eventos-grid {
+    margin-top: 0rem;
+}
+
+/* Tarjeta de evento */
+.evento-list-container {
+    padding-top: 0 ;
+}
+
+.evento-card {
+    background-color: #ffffff;
+    border: 1px solid #dee2e6;
+    border-radius: 10px;
+    padding: 0.8rem 1rem;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.04);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.2s ease;
+    font-size: 0.72rem;
+}
+
+.evento-card:hover {
+    transform: translateY(-2px);
+}
+
+.eventos-grid {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+    margin-top: 0rem;
+}
+
+/* Cabecera del evento */
+.evento-header h5 {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #0e1f50;
+    margin-bottom: 0.4rem;
+}
+
+/* Detalles */
+.evento-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+    font-size: 0.68rem;
+    color: #333;
+    margin-bottom: 0.4rem;
+}
+
+.detail-label {
+    font-weight: 600;
+    color: #0e1f50;
+    font-size: 0.68rem;
+    display: inline;
+    margin-right: 0.25rem;
+}
+
+.detail-value {
+    font-weight: 400;
+    color: #444;
+    font-size: 0.68rem;
+    display: inline;
+}
+
+/* Botón Asistir */
+.evento-actions {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.btn-asistir {
+    background-color: #e9be75;
+    color: #ffffff;
+    padding: 5px 14px;
+    font-size: 0.68rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.07);
+}
+
+.btn-asistir:hover {
+    background-color: #dba64c;
+    box-shadow: 0 5px 9px rgba(0, 0, 0, 0.10);
+}
+
+.btn-asistir:disabled {
+    background-color: #cccccc;
+    color: #666666;
+    cursor: not-allowed;
+    box-shadow: none;
+}

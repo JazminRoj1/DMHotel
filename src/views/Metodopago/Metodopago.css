@@ -1,0 +1,203 @@
+.pago-container {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: center;
+    gap: 30px;
+    margin: 40px auto;
+    padding: 20px;
+    max-width: 1100px;
+    flex-wrap: wrap;
+}
+
+.habitacion-info,
+.formulario-pago {
+    flex: 1;
+    min-width: 340px;
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.habitacion-info {
+    background-color: #f8f8f8;
+}
+
+.habitacion-info h2,
+.formulario-pago h2 {
+    margin-bottom: 15px;
+    color: #1d1d1d;
+}
+
+.habitacion-info p {
+    margin-bottom: 8px;
+    color: #333;
+}
+
+.advertencia-superior {
+    margin-bottom: 15px;
+    display: block;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #333;
+}
+
+.advertencia-pago {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: #f9631a;
+    padding: 12px;
+    border-radius: 8px;
+    margin-top: 15px;
+    color: white;
+    font-size: 14px;
+}
+
+.advertencia-pago img {
+    width: 24px;
+    height: auto;
+}
+
+.formulario-pago form input {
+    box-sizing: border-box;
+    width: 100%;
+    height: 45px;
+    padding: 12px;
+    margin-bottom: 15px;
+    border-radius: 6px;
+    font-size: 14px;
+    border: 2px solid #ccc;
+    transition: border 0.3s ease;
+}
+
+.fila {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 15px;
+    align-items: stretch;
+}
+
+.fila input {
+    flex: 1 1 auto;
+    min-width: 160px;
+    box-sizing: border-box;
+}
+
+input.error {
+    border: 2px solid #e53935 !important;
+    box-shadow: 0 0 0 2px rgba(229, 57, 53, 0.15);
+}
+      
+.formulario-pago button {
+    width: 100%;
+    background-color: #d51f1f;
+    color: white;
+    font-weight: bold;
+    border: none;
+    padding: 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    font-size: 15px;
+}
+
+.formulario-pago button:hover {
+    background-color: #a81717;
+}
+
+.nota {
+    font-size: 13px;
+    color: #555;
+    margin-top: 10px;
+    text-align: left;
+    margin-left: 3px;
+}
+
+.logos {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.logos img {
+    width: 45px;
+    height: auto;
+    object-fit: contain;
+}
+
+.mensaje-activacion {
+    background-color: transparent;
+    padding: 12px 0;
+    border-radius: 6px;
+    margin-bottom: 15px;
+    text-align: left;
+    font-size: 14px;
+    color: #333;
+    border: none;
+    font-weight: 500;
+    line-height: 1.5;
+    white-space: normal;
+}
+
+/* ===== MODAL DE ÉXITO ===== */
+.modal-exito {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.modal-contenido {
+    background: #fff;
+    padding: 2rem 3rem;
+    border-radius: 15px;
+    text-align: center;
+    animation: fadeIn 0.3s ease;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.3);
+}
+
+.check-container {
+    font-size: 4rem;
+    color: #28a745;
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+
+.mensaje-error {
+    font-size: 13px;
+    color: red;
+    margin-top: -10px;
+    margin-bottom: 10px;
+    display: none;
+}
+
+.mensaje-error.activo {
+    display: block;
+}
+
+
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}

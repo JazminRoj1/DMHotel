@@ -1,0 +1,120 @@
+/* Contenedor principal */
+.reservation-form-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Tarjeta */
+.card {
+    border-radius: 8px;
+    border: 1px solid #dee2e6;
+}
+
+/* Título principal */
+.card-title {
+    font-size: 1.75rem;
+    font-weight: 500;
+    color: #333;
+}
+
+/* Sección de disponibilidad */
+.availability-section {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 6px;
+}
+
+/* Botones genéricos */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 24px;
+    font-weight: bold;
+    font-size: 1rem;
+    text-transform: uppercase;
+    background-color: #e9be75;
+    color: #ffffff;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-family: 'Segoe UI', sans-serif;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+}
+
+.btn:hover {
+    background-color: #dba64c;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+.btn-primary {
+    background-color: #e9be75;
+    color: #ffffff;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #dba64c;
+    color: #ffffff;
+}
+
+/* Botón outline */
+.btn-outline-primary {
+    color: #0d6efd;
+    border-color: #0d6efd;
+}
+
+.btn-outline-primary:hover {
+    background-color: #0d6efd;
+    color: white;
+}
+
+/* Etiquetas */
+.form-label {
+    font-weight: 500;
+    margin-bottom: 8px;
+    color: #495057;
+}
+
+/* Campos del formulario */
+.form-control,
+.form-select {
+    padding: 10px 12px;
+    border-radius: 6px;
+    border: 1px solid #ced4da;
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: #86b7fe;
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+}
+
+/* Línea divisoria */
+hr {
+    opacity: 0.2;
+    margin: 24px 0;
+}
+
+/* NUEVO: Estilo del botón decorado */
+.boton-nuevo button {
+    background-color: #ffffff;
+    color: #0e1f50;
+    padding: 10px 20px;
+    font-weight: 600;
+    border: 3px solid #fce6aa;
+    border-radius: 18px;
+    cursor: pointer;
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+}
+
+.boton-nuevo button:hover {
+    background-color: #fffaf0;
+    border-color: #f7d76c;
+}

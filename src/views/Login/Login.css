@@ -1,0 +1,144 @@
+h2 {
+    color: var(--color-blue);
+    font-size: 28px;
+    font-weight: 600;
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 30px;
+}
+
+.form__login {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+input[type=password],
+input[type=text],
+input[type=email] {
+    padding: 10px 12px;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.form__login-button {
+    background-color: var(--color-blue);
+    color: white;
+    padding: 12px 25px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    margin-top: 5px;
+}
+
+.form__login-button:hover {
+    background-color: #101c3d;
+}
+
+.login-register-text {
+    font-size: 14px;
+    color: #555;
+    text-align: center;
+    margin-top: 15px;
+}
+
+.login-register-text a {
+    color: var(--color-naranja-oscuro);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.login-register-text a:hover {
+    text-decoration: underline;
+}
+
+.login-page-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* Ajusta '70px' si la altura de tu Nav o Footer es diferente. */
+    min-height: calc(100vh - 70px - 70px);
+    padding: 20px;
+    margin-bottom: 50px;
+    /* Esta es la separación del footer */
+}
+form.form__login {
+    margin-bottom: 80px;
+    /* Ajusta el valor según lo separado que lo quieras del footer */
+}
+:root {
+    --color-blue: #14244c;
+    --color-naranja: #eac278;
+    --color-naranja-oscuro: #c4953d;
+}
+
+.login-page-wrapper * {
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+.campo-error {
+    border: 2px solid rgba(255, 80, 80, 0.8);
+    background-color: transparent;
+    transition: border 0.3s ease;
+}
+/* 📱 Dispositivos móviles pequeños */
+@media (max-width: 480px) {
+    h2 {
+        font-size: 22px;
+        margin-top: 30px;
+        margin-bottom: 20px;
+    }
+
+    .form__login {
+        padding: 20px;
+        gap: 12px;
+    }
+
+    .form__login-button {
+        padding: 10px 20px;
+        font-size: 0.95rem;
+    }
+
+    input[type="text"],
+    input[type="password"],
+    input[type="email"] {
+        font-size: 0.95rem;
+        padding: 10px;
+    }
+
+    .login-register-text {
+        font-size: 13px;
+    }
+}
+
+/* 📲 Tablets y móviles grandes */
+@media (max-width: 768px) {
+    .form__login {
+        max-width: 90%;
+    }
+
+    h2 {
+        font-size: 24px;
+    }
+
+    .form__login-button {
+        font-size: 1rem;
+    }
+}
+
+/* 💻 Pantallas grandes */
+@media (min-width: 1200px) {
+    .form__login {
+        max-width: 420px;
+    }
+}

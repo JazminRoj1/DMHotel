@@ -1,0 +1,486 @@
+/* 🔸 CONTENEDOR GENERAL DE PROMOCIONES */
+.promo-container {
+    padding: 40px 20px;
+    background-color: #ffffff;
+    color: #111111;
+    font-family: 'Poppins', sans-serif;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* 🔹 TÍTULOS Y DESCRIPCIONES GENERALES */
+.promo-titulo {
+    font-size: 36px;
+    color: #c5a254;
+    /* ← dorado como el otro título */
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.promo-descripcion {
+    font-size: 18px;
+    color: #444;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 40px;
+}
+
+/* 🔸 BLOQUE INTERBANK */
+.promo-bloque.interbank {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    background-color: #f8f5ef ;  
+    border-radius: 20px;
+    padding: 2rem;
+    margin: 2rem 0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+/* 🔹 IMAGEN / CARRUSEL */
+.interbank-img {
+    flex: 1 1 40%;
+    min-width: 300px;
+    margin-right: 2rem;
+}
+
+/* 🔹 Carrusel interno */
+.mini-carrusel {
+    width: 100%;
+    height: 280px;
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    background-color: #f5f5f5;
+}
+
+.mini-carrusel img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    top: 0;
+    left: 0;
+}
+
+/* 🔹 TEXTO */
+.interbank-texto {
+    flex: 1 1 50%;
+    font-family: 'Poppins', sans-serif;
+    color: #001c55;
+}
+
+.interbank-texto .etiqueta {
+    color: #f6e4b5;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.interbank-texto h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: #001c55;
+}
+
+.interbank-texto p,
+.interbank-texto ul {
+    font-size: 1rem;
+    color: #333;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.interbank-texto ul {
+    list-style: none;
+    padding-left: 1.2rem;
+}
+
+.interbank-texto li {
+    margin-bottom: 0.5rem;
+    position: relative;
+    padding-left: 20px;
+}
+
+.interbank-texto li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: #001c55;
+    font-weight: bold;
+}
+
+/* 🔹 INFORMACIÓN DETALLADA */
+.info-detalle h4 {
+    color: #001c55;
+    margin-top: 1rem;
+    font-size: 1.1rem;
+}
+
+.info-detalle p {
+    color: #444;
+    font-size: 0.95rem;
+    margin-top: 0.3rem;
+}
+.fullday {
+    display: flex;
+    flex-wrap: wrap;
+    font-family: 'Poppins', sans-serif;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+.fullday-texto {
+    flex: 1 1 480px;
+    color: #111;
+    line-height: 1.6;
+}
+
+.fullday-texto h2 {
+    position: relative;
+    padding-bottom: 0.6rem;
+    margin-bottom: 1.6rem;
+}
+
+.fullday-texto h2::after {
+    content: '';
+    position: absolute;
+    width: 60px;
+    height: 3px;
+    background-color: #d5c6ac;
+    bottom: 0;
+    left: 0;
+    border-radius: 2px;
+}
+
+.fullday-texto p {
+    font-size: 1rem;
+    margin-bottom: 1.3rem;
+    /* antes 0.9rem */
+}
+.ficha-full-day p,
+.ficha-full-day ul,
+.ficha-full-day h3 {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+.sedes-titulo {
+    font-weight: 600;
+    margin-top: 1.5rem;
+    margin-bottom: 0.7rem;
+    color: #372C1E;
+    font-size: 1.05rem;
+}
+
+.sedes-lista {
+    padding-left: 1.2rem;
+    margin-bottom: 1.5rem;
+}
+
+.sedes-lista li {
+    list-style: disc;
+    margin-bottom: 0.4rem;
+}
+
+.btn-wsp {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background-color: #25D366;
+    color: white;
+    padding: 0.7rem 1.2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+    font-size: 1rem;
+    margin-top: 0.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
+}
+
+.btn-wsp:hover {
+    background-color: #1ebe5d;
+}
+
+.btn-wsp img {
+    height: 22px;
+}
+
+.ver-condiciones a {
+    display: inline-block;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    color: #0066cc;
+    font-weight: 500;
+    text-decoration: underline;
+    transition: color 0.3s ease;
+}
+
+.ver-condiciones a:hover {
+    color: #004e99;
+}
+.disponibilidad-info {
+    color: #555;
+    font-size: 0.95rem;
+    font-style: italic;
+    margin-top: 1rem;
+}
+
+/*PUNTOS Y MENBRESIAS*/
+/* PUNTOS Y MEMBRESÍAS */
+.beneficio-container {
+    display: flex;
+    flex-direction: row;
+    /* Imagen a la derecha, texto a la izquierda */
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 2rem;
+    padding: 2.5rem 2rem;
+    background-color: #fefaf5;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    font-family: 'Poppins', sans-serif;
+    flex-wrap: nowrap;
+}
+
+.beneficio-info {
+    flex: 1 1 60%;
+    max-width: 60%;
+}
+.beneficio-imagen {
+    width: 460px;
+    height: 280px;
+    flex-shrink: 0;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: stretch;
+    justify-content: stretch;
+    margin-top: 140px;
+}
+
+.beneficio-imagen .MiniCarrusel {
+    width: 100%;
+    height: 100%;
+}
+
+.beneficio-imagen .MiniCarrusel img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+.beneficio-imagen img:hover,
+.beneficio-imagen .MiniCarrusel:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.etiqueta {
+    color: #e6b800;
+    font-size: 0.85rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.beneficio-info h3 {
+    color: #002147;
+    margin-bottom: 1rem;
+    font-size: 1.8rem;
+    font-weight: 800;
+    line-height: 1.3;
+}
+
+.beneficio-info p,
+.beneficio-info ul {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #333;
+}
+
+.beneficio-info ul {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.beneficio-info li::before {
+    content: "✔️";
+    margin-right: 8px;
+    color: #5e5eff;
+}
+
+.beneficio-info li {
+    margin-bottom: 0.5rem;
+}
+
+/*ULTIMO LLAMADO*/
+.final-call {
+    background-color: #ffffff;
+    /* Fondo blanco como el resto del contenido */
+    padding: 40px 24px;
+    border-radius: 16px;
+    margin-top: 48px;
+    text-align: center;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.05);
+}
+
+.final-call h3 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #1f1f1f;
+}
+
+.final-call .boton-reserva {
+    background-color: #f6e4b5;
+    /* Usa tu tono crema/dorado claro */
+    color: #111111;
+    /* Contraste con el fondo */
+    padding: 12px 28px;
+    border-radius: 8px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    display: inline-block;
+}
+
+.final-call .boton-reserva:hover {
+    background-color: #e5d3a8;
+    /* Tono más oscuro al pasar el mouse */
+}
+/* 🔹 RESPONSIVE */
+/* 🔹 RESPONSIVE GENERAL PARA PROMOCIONES */
+@media (max-width: 767px) {
+    .beneficio-container {
+        flex-direction: column-reverse;
+        align-items: center;
+        text-align: center;
+        padding: 1.5rem 1rem;
+        gap: 1.5rem;
+        margin: 0 auto;
+    }
+
+    .beneficio-info {
+        max-width: 100%;
+        padding: 0;
+    }
+
+    .beneficio-info h3 {
+        font-size: 1.25rem;
+        margin-bottom: 0.8rem;
+        line-height: 1.4;
+    }
+
+    .beneficio-info p {
+        font-size: 0.95rem;
+        line-height: 1.6;
+        margin: 0.5rem 0;
+    }
+
+    .beneficio-info ul {
+        padding-left: 1rem;
+        text-align: left;
+    }
+
+    .beneficio-info li {
+        font-size: 0.95rem;
+        margin-bottom: 0.5rem;
+    }
+
+        .beneficio-imagen {
+            width: 100%;
+            height: auto;
+            margin-top: 0;
+            margin-bottom: 3rem;
+            /* <-- NUEVO: añade distancia al texto que está abajo */
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.06);
+        }
+
+    .beneficio-imagen .MiniCarrusel img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
+
+    .etiqueta {
+        font-size: 0.75rem;
+        letter-spacing: 0.4px;
+        margin-bottom: 0.5rem;
+    }
+
+    .final-call {
+        text-align: center;
+        padding: 2rem 1rem 1rem;
+    }
+
+    .final-call h3 {
+        font-size: 1.1rem;
+        margin-bottom: 1rem;
+        line-height: 1.4;
+    }
+
+    .boton-reserva {
+        display: inline-block;
+        padding: 0.6rem 1.2rem;
+        font-size: 1rem;
+        background-color: #002147;
+        color: white;
+        border-radius: 8px;
+        text-decoration: none;
+    }
+}
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+    .promo-container {
+        padding: 2rem 1.5rem;
+    }
+
+    .promo-bloque.interbank,
+    .promo-bloque.membresias {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 1.5rem;
+    }
+
+    .beneficio-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 2rem 1.5rem;
+        gap: 1.5rem;
+    }
+
+    .beneficio-info,
+    .beneficio-imagen {
+        max-width: 100%;
+        width: 100%;
+        margin-top: 0;
+    }
+
+    .beneficio-imagen {
+        height: auto;
+        aspect-ratio: 4 / 3;
+    }
+
+    .final-call h3 {
+        font-size: 1.3rem;
+        padding: 0 1rem;
+    }
+
+    .boton-reserva {
+        padding: 0.75rem 1.5rem;
+        font-size: 1rem;
+    }
+}

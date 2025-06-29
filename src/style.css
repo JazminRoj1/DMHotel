@@ -1,0 +1,364 @@
+/* ===== VARIABLES ===== */
+:root {
+    --color-blue: #14244c;
+    --color-naranja: #eac278;
+    --color-naranja-oscuro: #c4953d;
+}
+
+/* ===== RESET LOCAL ===== */
+.nav,
+.nav * {
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+/* ===== NAV BARRA PRINCIPAL ===== */
+.nav {
+    background-color: var(--color-blue);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+}
+
+.nav__img {
+    border-radius: 0 0 20px 20px;
+    padding: 0 30px;
+    background-color: var(--color-naranja);
+}
+
+.nav img {
+    width: 50px;
+}
+
+#menu {
+    font-size: 2rem;
+    color: white;
+}
+
+/* Hover para enlaces del nav (desktop) */
+.nav div a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.nav div a:hover {
+    color: var(--color-naranja);
+}
+
+/* ===== ÍCONO DE USUARIO Y ENLACE ===== */
+.login-icon-image {
+    width: 40px;
+    height: 40px;
+    filter: invert(100%) brightness(200%);
+    transition: filter 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    border-radius: 50%;
+    box-shadow: none;
+    /* 🔹 Sin brillo por defecto */
+}
+
+.nav__login-icon-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0px;
+    font-size: 12px;
+    white-space: nowrap;
+    text-decoration: none;
+    color: white;
+    transition: color 0.3s ease; }
+
+.nav__login-icon-link .login-icon-image {
+    height: 40px;
+    width: auto;
+    filter: invert(100%) brightness(200%) contrast(100%);
+    transition: filter 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.nav__login-icon-link:hover {
+    color: var(--color-naranja);
+    /* Texto se vuelve dorado */
+}
+
+.nav__login-icon-link:hover .login-icon-image {
+    filter: invert(74%) sepia(94%) saturate(150%) hue-rotate(1deg) brightness(92%) contrast(90%);
+    box-shadow: 0 0 12px 3px #c4953d;
+    /* ✨ Brillo dorado al pasar el mouse */ 
+}
+
+/* ===== MENÚ FLOTANTE DE USUARIO ===== */
+.nav__usuario-hover-wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    padding-bottom: 10px;
+}
+
+.nav__menu-flotante {
+    position: absolute;
+    top: calc(100% + 0.3px);
+    right: 0;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+    padding: 14px 16px;
+    display: flex;
+    flex-direction: column;
+    min-width: 180px;
+    z-index: 100;
+    transition: opacity 0.2s ease;
+    pointer-events: auto;
+}
+
+.nav__menu-opcion {
+    background: none;
+    border: none;
+    padding: 8px 12px;
+    text-align: left;
+    text-decoration: none;
+    color: #333;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.2s ease;
+}
+
+.nav__menu-opcion:hover {
+    background-color: #f5f5f5;
+    color: #007bff;
+}
+
+.nav__logout-btn {
+    color: #000 !important;
+    font-weight: 600;
+}
+/* Solo visible si está activado en móviles */
+.nav__open {
+    display: flex !important;
+    flex-direction: column;
+    gap: 10px;
+    background-color: var(--color-blue);
+    position: absolute;
+    top: 70px;
+    right: 30px;
+    padding: 15px;
+    border-radius: 8px;
+    z-index: 100;
+}
+
+.mensaje-formulario {
+    margin-top: 1rem;
+    padding: 0.75rem 1.2rem;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-align: center;
+    border: 1px solid transparent;
+    font-family: 'Poppins', sans-serif;
+    width: 100%;
+}
+
+.mensaje-error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border-color: #f5c6cb;
+}
+
+.mensaje-exito {
+    background-color: #d4edda;
+    color: #155724;
+    border-color: #c3e6cb;
+}
+
+/* === CORRECCIÓN DE COMPORTAMIENTO FLOTANTE === */
+
+/* Oculta el menú por defecto */
+.nav__menu-flotante {
+    display: none;
+}
+
+/* Muestra el menú SOLO cuando el mouse está encima del contenedor completo */
+.nav__usuario-hover-wrapper:hover .nav__menu-flotante {
+    display: flex;
+}
+/* 🔔 Contenedor general de la campana */
+/* 🔔 Contenedor general de la campana */
+.nav__notificaciones-wrapper {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+/* 🛎 Ícono de la campana */
+.nav__notificacion-icon {
+    width: 40px;
+    height: 40px;
+    filter: invert(100%) brightness(200%);
+    transition: filter 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    border-radius: 50%;
+    box-shadow: none;
+}
+
+/* ✨ Efecto dorado al pasar el mouse */
+.nav__notificaciones-wrapper:hover .nav__notificacion-icon {
+    filter: invert(74%) sepia(94%) saturate(150%) hue-rotate(1deg) brightness(92%) contrast(90%);
+}
+
+/* 📩 Dropdown de notificaciones */
+.nav__notificaciones-dropdown {
+    position: absolute;
+    top: 55px;
+    right: 0;
+    background-color: #ffffff;
+    width: 190px;
+    /* más corto */
+    padding: 10px 12px;
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    transition: opacity 0.2s ease;
+    pointer-events: auto;
+    display: none;
+    max-height: fit-content;
+}
+
+/* Mostrar notificaciones al pasar mouse */
+.nav__notificaciones-wrapper:hover .nav__notificaciones-dropdown {
+    display: flex;
+}
+
+/* 📄 Ítem dentro del menú */
+.nav__notificacion-item {
+    font-size: 13.5px;
+    color: #333;
+}
+
+/* ✍️ Texto de la notificación */
+.nav__notificacion-text {
+    font-weight: 500;
+    font-size: 13.5px;
+    color: #333;
+    line-height: 1.4;
+    text-align: left;
+}
+
+/* 🌐 Responsividad */
+@media (max-width: 799px) {
+    #menu {
+        display: block;
+    }
+
+    #nav__desktop {
+        display: none;
+        flex-direction: column;
+    }
+}
+/* 📱 Tablet (600px a 1024px) */
+@media (min-width: 600px) and (max-width: 1024px) {
+    .nav__notificaciones-wrapper {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 12px;
+        width: auto;
+        z-index: 9999;
+    }
+
+    .nav__notificaciones-dropdown {
+        position: absolute;
+        top: 100px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 200px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        z-index: 9999;
+        padding: 10px 14px;
+    }
+
+    .nav__usuario-hover-wrapper {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        width: auto;
+        margin-top: 12px;
+    }
+
+    .nav__menu-flotante {
+        position: absolute;
+        top: 40px;
+        right: 0;
+        min-width: 200px;
+        background-color: white;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        border-radius: 8px;
+        padding: 10px;
+        z-index: 9999;
+    }
+}
+/* 📱 Móviles pequeños */
+@media (max-width: 599px) {
+    .nav__notificaciones-wrapper {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        margin-top: 12px;
+        z-index: 9999;
+    }
+
+    .nav__notificacion-icon {
+        width: 30px;
+        height: 30px;
+    }
+
+    .nav__notificaciones-dropdown {
+        position: absolute;
+        top: -15px;
+        left: -55%;
+        transform: translateX(-50%);
+        width: 85%;
+        max-width: 150px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        z-index: 9999;
+        padding: 10px 14px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    /* USER */
+  .nav__usuario-hover-wrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 12px;
+  }
+
+  .nav__menu-flotante {
+    position: absolute;
+    top: 84px;       /* Baja el modal más abajo del ícono */
+    left: 5%;       /* Lo empuja hacia la derecha */
+    transform: translateX(-10%);
+    min-width: 170px;
+    z-index: 1000;
+  }
+
+  .nav__login-icon-link {
+    align-items: center;
+    text-align: center;
+  }
+}

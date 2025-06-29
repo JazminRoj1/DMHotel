@@ -1,0 +1,298 @@
+.reservation-list-container {
+    padding: 0.5rem 1.5rem 1.5rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    font-family: "Poppins", sans-serif;
+    color: #111;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.contenido-derecha {
+    flex-grow: 1;
+    width: 100%;
+    padding: 1rem 2rem;
+    box-sizing: border-box;
+}
+
+.titulo-form {
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: #001f4d;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #f6e4b5;
+    padding-bottom: 0.3rem;
+    width: 100%;
+    text-align: left;
+}
+
+.reservations-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.2rem;
+    width: 100%;
+}
+
+.reservation-card {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    padding: 1rem 1.2rem;
+    font-size: 0.85rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.reservation-card.cancelled {
+    opacity: 0.65;
+    background-color: #f0f0f0;
+    border-left: 4px solid #ccc;
+}
+
+.reservation-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-bottom: 2px solid #f6e4b5;
+    padding-bottom: 0.4rem;
+}
+
+.reservation-header h5 {
+    margin: 0;
+    font-size: 1.1rem;
+    color: #001f4d;
+    flex-grow: 1;
+}
+
+.reservation-header .estado {
+    font-size: 0.7rem;
+    font-weight: 600;
+    background-color: #198754;
+    color: #fff;
+    padding: 0.25rem 0.7rem;
+    border-radius: 20px;
+    text-transform: uppercase;
+    margin-left: 0.5rem;
+}
+
+.reservation-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.detail-group {
+    display: flex;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+}
+
+.detail-label {
+    font-weight: 500;
+    min-width: 120px;
+    color: #495057;
+}
+
+.detail-value {
+    color: #212529;
+}
+
+.reservation-actions {
+    display: flex;
+    justify-content: flex-end;
+    border-top: 1px solid #eee;
+    padding-top: 0.5rem;
+}
+
+.btn-guardar {
+    background-color: #001f4d;
+    color: #ffffff;
+    padding: 0.45rem 1.2rem;
+    font-size: 0.8rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.btn-guardar:hover {
+    background-color: #f6e4b5;
+    color: #001f4d;
+}
+
+/* PANTALLAS GRANDES */
+@media (min-width: 1200px) {
+    .reservation-list-container {
+        padding: 1rem 3rem;
+        max-width: 1400px;
+        margin: 0 auto;
+    }
+
+    .reservations-grid {
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    }
+
+    .reservation-card {
+        font-size: 0.9rem;
+    }
+
+    .reservation-header h5 {
+        font-size: 1.2rem;
+    }
+}
+
+/* PANTALLAS MEDIANAS (tablets, laptops pequeñas) */
+@media (min-width: 768px) and (max-width: 1199px) {
+    .reservation-list-container {
+        padding: 1rem 2rem;
+    }
+
+    .reservations-grid {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    }
+
+    .reservation-card {
+        font-size: 0.85rem;
+    }
+
+    .reservation-header h5 {
+        font-size: 1.1rem;
+    }
+}
+
+/* PANTALLAS PEQUEÑAS (celulares grandes) */
+@media (min-width: 480px) and (max-width: 767px) {
+    .reservation-list-container {
+        padding: 0.8rem 1rem;
+    }
+
+    .titulo-form {
+        font-size: 1rem;
+    }
+
+    .reservations-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .reservation-card {
+        padding: 0.9rem;
+        font-size: 0.8rem;
+    }
+
+    .reservation-header h5 {
+        font-size: 1rem;
+    }
+
+    .reservation-header .estado {
+        font-size: 0.7rem;
+        padding: 0.2rem 0.6rem;
+    }
+
+    .detail-group {
+        flex-direction: column;
+        gap: 0.3rem;
+    }
+
+    .btn-guardar {
+        font-size: 0.75rem;
+        padding: 0.4rem 1rem;
+    }
+}
+
+/* PANTALLAS EXTRA PEQUEÑAS (celulares muy chicos) */
+@media (max-width: 479px) {
+    .reservation-list-container {
+        padding: 0.5rem;
+    }
+
+    .titulo-form {
+        font-size: 0.95rem;
+        text-align: center;
+    }
+
+    .reservations-grid {
+        grid-template-columns: 1fr;
+        gap: 0.8rem;
+    }
+
+    .reservation-card {
+        padding: 0.7rem;
+        font-size: 0.75rem;
+    }
+
+    .reservation-header h5 {
+        font-size: 0.95rem;
+    }
+
+    .reservation-header .estado {
+        font-size: 0.65rem;
+        padding: 0.2rem 0.5rem;
+    }
+
+    .detail-label {
+        min-width: auto;
+    }
+
+    .detail-group {
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+
+    .btn-guardar {
+        width: 100%;
+        padding: 0.45rem;
+        font-size: 0.75rem;
+    }
+}
+/* === RESPONSIVE NAV GENERAL === */
+@media (max-width: 799px) {
+    #menu {
+        display: block;
+    }
+
+    #nav__desktop {
+        position: absolute;
+        top: 70px;
+        right: 30px;
+        background-color: var(--color-blue);
+        padding: 15px;
+        border-radius: 8px;
+        display: none;
+        flex-direction: column;
+        gap: 10px;
+        z-index: 99;
+        min-width: 180px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+
+    #nav__desktop.nav__open {
+        display: flex;
+    }
+
+    /* Opcional: evita que el nav cambie de tamaño por el contenido */
+    .nav {
+        position: relative;
+        overflow: visible;
+    }
+}
+
+@media (min-width: 800px) {
+    #menu {
+        display: none;
+    }
+
+    #nav__desktop {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 1rem;
+        position: static;
+        box-shadow: none;
+        background-color: transparent;
+        padding: 0;
+    }
+}

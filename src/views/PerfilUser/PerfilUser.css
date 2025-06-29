@@ -1,0 +1,226 @@
+.perfil-usuario {
+    padding: 0.5rem 1rem 1rem 0.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    color: #111;
+    font-family: "Poppins", sans-serif;
+    margin-left: 0;
+}
+
+.titulo-perfil {
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: #001f4d;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #f6e4b5;
+    padding-bottom: 0.3rem;
+    width: 100%;
+    text-align: left;
+}
+
+.card-perfil {
+    margin-top: 0;
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 1.2rem 1.4rem;
+    max-width: 500px;
+    width: 100%;
+}
+
+.perfil-header {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-bottom: 1rem;
+}
+
+.foto-usuario {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    border: 2px solid #f6e4b5;
+    background-color: #fff;
+}
+
+.datos-usuario h3 {
+    margin: 0;
+    font-size: 0.95rem;
+    color: #001f4d;
+    font-weight: 500;
+}
+
+.email-usuario {
+    font-size: 0.75rem;
+    color: #666;
+    margin-top: 0.2rem;
+}
+
+.bloque-info {
+    background-color: #f9f9f9;
+    padding: 0.9rem 1rem;
+    margin-bottom: 1rem;
+    font-size: 0.8rem;
+    border-radius: 10px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+}
+
+.titulo-bloque {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #001f4d;
+    margin-bottom: 0.3rem;
+}
+
+.botones-perfil {
+    display: flex;
+    gap: 0.6rem;
+    margin-top: 0.5rem;
+}
+
+.btn-editar,
+.btn-nueva-habitacion {
+    background-color: #001f4d;
+    color: #ffffff;
+    padding: 0.4rem 0.9rem;
+    font-size: 0.75rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.btn-editar:hover,
+.btn-nueva-habitacion:hover {
+    background-color: #f6e4b5;
+    color: #001f4d;
+}
+
+/* Bloque reserva mejorado */
+.reserva-reciente {
+    position: relative;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    padding: 0.9rem 1rem;
+    font-size: 0.78rem;
+    line-height: 1.4;
+    margin-top: 0.6rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+}
+
+.reserva-reciente p {
+    margin: 0.2rem 0;
+}
+
+.btn-ver-detalles {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.6rem;
+    background-color: #001f54;
+    color: white;
+    border: none;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    cursor: pointer;
+}
+
+.btn-ver-detalles:hover {
+    background-color: #003077;
+}
+
+.sin-reservas {
+    font-size: 0.8rem;
+    color: #555;
+    margin-top: 0.3rem;
+}
+/* Adaptación general para tablets y móviles */
+@media (max-width: 768px) {
+.perfil-usuario {
+     width: 100%;
+    box-sizing: border-box;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+    
+.card-perfil {
+    max-width: 100%;
+}
+    
+/* Asegura que no haya márgenes laterales innecesarios */
+body,
+    html {
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;  
+    }
+
+    .perfil-header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .foto-usuario {
+        width: 64px;
+        height: 64px;
+    }
+
+    .datos-usuario h3 {
+        font-size: 1rem;
+    }
+
+    .email-usuario {
+        font-size: 0.75rem;
+    }
+
+    .botones-perfil {
+        flex-direction: column;
+        width: 100%;
+        align-items: stretch;
+    }
+
+    .btn-editar,
+    .btn-nueva-habitacion {
+        width: 100%;
+        font-size: 0.85rem;
+    }
+
+    .reserva-reciente {
+        padding: 1rem;
+        font-size: 0.85rem;
+    }
+
+    .btn-ver-detalles {
+        position: static;
+        align-self: flex-end;
+        margin-bottom: 0.5rem;
+    }
+}
+
+/* Ajustes extra para pantallas muy pequeñas */
+@media (max-width: 480px) {
+    .titulo-perfil {
+        font-size: 1rem;
+    }
+
+    .titulo-bloque {
+        font-size: 0.8rem;
+    }
+
+    .bloque-info {
+        font-size: 0.75rem;
+    }
+
+    .reserva-reciente {
+        font-size: 0.75rem;
+    }
+
+    .btn-ver-detalles {
+        font-size: 0.65rem;
+        padding: 4px 10px;
+    }
+}

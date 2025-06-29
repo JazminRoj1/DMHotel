@@ -1,0 +1,240 @@
+.dashboard-container {
+  padding: 2rem;
+  background-color: #f8f9fa;
+  min-height: 100vh;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.dashboard-header h2 {
+  color: #333;
+  margin: 0;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.filtros-tiempo {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.filtros-tiempo button {
+  padding: 0.5rem 1rem;
+  border: 2px solid #e9ecef;
+  background: white;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.filtros-tiempo button:hover {
+  border-color: #007bff;
+  color: #007bff;
+}
+
+.filtros-tiempo button.active {
+  background: #007bff;
+  border-color: #007bff;
+  color: white;
+}
+
+/* Grid de métricas principales */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  border-left: 4px solid;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+.card.azul {
+  border-left-color: #007bff;
+}
+.card.verde {
+  border-left-color: #28a745;
+}
+.card.naranja {
+  border-left-color: #fd7e14;
+}
+.card.celeste {
+  border-left-color: #17a2b8;
+}
+.card.morado {
+  border-left-color: #6f42c1;
+}
+
+.card span {
+  display: block;
+  color: #666;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.card .valor {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin: 0.5rem 0;
+  color: #333;
+}
+
+.card small {
+  color: #888;
+  font-size: 0.8rem;
+}
+
+/* Grid de gráficos */
+.graficos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.grafico-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.grafico-card h3 {
+  margin: 0 0 1rem 0;
+  color: #333;
+  font-size: 1.2rem;
+  font-weight: 600;
+  border-bottom: 2px solid #f0f0f0;
+  padding-bottom: 0.5rem;
+}
+
+/* Métricas adicionales */
+.metricas-adicionales {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+}
+
+.metrica-card {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.metrica-card h4 {
+  margin: 0 0 1rem 0;
+  font-size: 1rem;
+  opacity: 0.9;
+}
+
+.valor-grande {
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+/* Estados de carga y error */
+.loading-dashboard,
+.error-dashboard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+  font-size: 1.2rem;
+  color: #666;
+}
+
+.error-dashboard {
+  color: #dc3545;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .dashboard-container {
+    padding: 1rem;
+  }
+
+  .dashboard-header {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .graficos-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .card .valor {
+    font-size: 2rem;
+  }
+
+  .valor-grande {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .filtros-tiempo {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .filtros-tiempo button {
+    width: 100%;
+  }
+
+  .grafico-card {
+    padding: 1rem;
+  }
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.card,
+.grafico-card,
+.metrica-card {
+  animation: fadeIn 0.6s ease-out;
+}
+
+/* Tooltips personalizados para los gráficos */
+.recharts-tooltip-wrapper {
+  background: white !important;
+  border: 1px solid #ddd !important;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+}
