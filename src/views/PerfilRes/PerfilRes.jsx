@@ -10,7 +10,14 @@ const PerfilRes = () => {
   const [reservations, setReservations] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const delayInMinutes = 1; 
 
+  const canCancelReservation = (createdAt) => {
+    const now = new Date();
+    const createdDate = new Date(createdAt);
+    const diffInMs = now - createdDate;
+    return diffInMs >= delayInMinutes * 60 * 1000; 
+  };
   useEffect(() => {
     const fetchReservations = async () => {
       try {
@@ -187,10 +194,16 @@ const PerfilRes = () => {
                 <button
                   className="btn-guardar"
                   onClick={() => cancelReservation(reservation.id)}
+                  disabled={!canCancelReservation(reservation.created_at)}
                 >
                   Cancelar Reservación
                 </button>
               </div>
+            )}
+            {!canCancelReservation(reservation.created_at) && (
+              <small className="text-muted">
+                Podrás cancelar esta reserva después de {delayInMinutes} minutos
+              </small>
             )}
           </div>
         ))}
