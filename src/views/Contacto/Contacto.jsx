@@ -3,13 +3,19 @@ import { useState } from 'react';
 import Nav from "../../components/Nav/Nav";
 import Footer from "../../components/Footer/Footer.jsx";
 import Carrusel from '../../components/Carrusel/Carrusel.jsx';
+import { ChatButton } from '../../components/chatbot/ChabButton';
+import { VirtualAssistant } from '../../components/chatbot/VirtualAssitant';
 
 const Contacto = () => {
   const [sinFecha, setSinFecha] = useState(false);
   const [mostrarModal, setMostrarModal] = useState(false);
   const [mostrarAlerta, setMostrarAlerta] = useState(false);
   const [errores, setErrores] = useState({});
+  const [isChatOpen, setIsChatOpen] = useState(false);
 
+    const toggleChat = () => {
+      setIsChatOpen(!isChatOpen);
+    };
   const [formData, setFormData] = useState({
     nombre: "",
     email: "",
@@ -207,7 +213,8 @@ const Contacto = () => {
           ></iframe>
         </div>
       </section>
-
+          <ChatButton onClick={toggleChat} isOpen={isChatOpen} />
+                  <VirtualAssistant isOpen={isChatOpen} onToggle={toggleChat} />
       <Footer />
     </>
   );

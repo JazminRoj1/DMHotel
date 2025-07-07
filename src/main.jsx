@@ -21,6 +21,7 @@ import Dashboard from "./views/Dashboard/Dashboard.jsx";
 import MetodoPago from "./views/Metodopago/Metodopago.jsx";
 import { AuthProvider } from "./context/AuthContext.jsx";
 import Promociones from "./views/Promociones/Promociones.jsx";
+import { NotificationProvider } from "./context/NotificationContext.jsx";
 
 const router = createBrowserRouter([
   { path: "/", element: <DMHotels /> },
@@ -45,7 +46,9 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <AuthProvider>
-      <RouterProvider router={router} />
+      <NotificationProvider>
+          <RouterProvider router={router} />
+      </NotificationProvider>
     </AuthProvider>
   </React.StrictMode>
 );

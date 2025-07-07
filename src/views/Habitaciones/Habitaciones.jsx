@@ -6,6 +6,8 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext.jsx";
+import { ChatButton } from "../../components/chatbot/ChabButton";
+import { VirtualAssistant } from "../../components/chatbot/VirtualAssitant";
 const habitaciones = [
   {
     nombre: "HABITACIÓN ESTANDAR",
@@ -68,7 +70,6 @@ const habitaciones = [
 const HabitacionesSlider = ({ imagenes, nombre }) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [autoplay, setAutoplay] = useState(true);
-
   useEffect(() => {
     let interval;
     if (autoplay && imagenes.length > 1) {
@@ -148,6 +149,11 @@ const HabitacionesSlider = ({ imagenes, nombre }) => {
 const Habitaciones = () => {
   const navigate = useNavigate();
   const { user } = useAuth();
+  const [isChatOpen, setIsChatOpen] = useState(false);
+
+    const toggleChat = () => {
+      setIsChatOpen(!isChatOpen);
+    };
   return (
     <>
       <Nav />
@@ -190,6 +196,8 @@ const Habitaciones = () => {
           ))}
         </div>
       </section>
+      <ChatButton onClick={toggleChat} isOpen={isChatOpen} />
+                        <VirtualAssistant isOpen={isChatOpen} onToggle={toggleChat} />
       <Footer />
     </>
   );

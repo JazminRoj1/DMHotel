@@ -2,8 +2,16 @@ import "./Servicios.css";
 import Nav from "../../components/Nav/Nav";
 import Footer from "../../components/Footer/Footer";
 import Carrusel from "../../components/Carrusel/Carrusel";
+import { ChatButton } from "../../components/chatbot/ChabButton";
+import { VirtualAssistant } from "../../components/chatbot/VirtualAssitant";
+import { useState } from "react";
 
 const Servicios = () => {
+  const [isChatOpen, setIsChatOpen] = useState(false);
+  
+      const toggleChat = () => {
+        setIsChatOpen(!isChatOpen);
+      };
   return (
     <>
       <Nav />
@@ -104,6 +112,8 @@ const Servicios = () => {
           />
         </div>
       </section>
+        <ChatButton onClick={toggleChat} isOpen={isChatOpen} />
+        <VirtualAssistant isOpen={isChatOpen} onToggle={toggleChat} />
       <Footer />
     </>
   );

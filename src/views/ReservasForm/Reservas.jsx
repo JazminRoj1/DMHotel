@@ -6,7 +6,7 @@ import Carrusel from "../../components/Carrusel/Carrusel.jsx";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
 import { roomsAPI, reservationsAPI } from "../../services/api";
-
+import { useNotifications } from "../../context/NotificationContext";
 const Reservas = () => {
   const { user, isAuthenticated } = useAuth();
   const navigate = useNavigate();
@@ -21,7 +21,7 @@ const Reservas = () => {
     guests: "Selecciona",
     notas: "",
   });
-
+  const { addNotification } = useNotifications();
   const [errores, setErrores] = useState({});
   const [mostrarDisponibilidad, setMostrarDisponibilidad] = useState(false);
   const [habitacionesDisponibles, setHabitacionesDisponibles] = useState([]);
@@ -224,13 +224,8 @@ const Reservas = () => {
       const response = await reservationsAPI.create(reservaData);
 
       if (response.data.success) {
-        alert("¡Reserva creada exitosamente!");
+        addNotification(`🛏️ Tu reserva está confirmada para el ${formatDateForDisplay(formData.checkIn)}.`);
         // Redirigir al perfil del usuario para ver sus reservas
-        if (user.rol === "administrador") {
-          navigate("/admin/reservations");
-        } else {
-          navigate("/perfilLa");
-        }
       } else {
         setErrores({
           general: response.data.message || "Error al crear la reserva",

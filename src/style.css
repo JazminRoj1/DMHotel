@@ -249,7 +249,25 @@
     line-height: 1.4;
     text-align: left;
 }
-
+.nav__notificacion-icon-container {
+    position: relative;
+  }
+  
+  .nav__notificacion-badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: red;
+    color: white;
+    border-radius: 50%;
+    font-size: 12px;
+    width: 18px;
+    height: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
 /* 🌐 Responsividad */
 @media (max-width: 799px) {
     #menu {

@@ -3,12 +3,14 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
+import { useNotifications } from "../../context/NotificationContext";
 
 const Nav = () => {
   const { user, logout, isAuthenticated, isAdmin } = useAuth(); // Usar AuthContext consistente
   const navigate = useNavigate();
   const [mostrarMenu, setMostrarMenu] = useState(false);
   const [mostrarNoti, setMostrarNoti] = useState(false);
+  const { notifications, unreadCount, markAllAsRead } = useNotifications();
 
   // Cierra sesión y redirige
   const handleLogout = () => {
@@ -36,7 +38,12 @@ const Nav = () => {
       </div>
 
       {/* Icono del menú para móviles (pendiente implementación) */}
-      <i id="menu" className="bx bx-menu" onClick={() => setMostrarMenu(!mostrarMenu)}></i>
+      <i
+        id="menu"
+        className="bx bx-menu"
+        onClick={() => setMostrarMenu(!mostrarMenu)}
+      >
+      </i>
 
       {/* Navegación principal */}
       <div id="nav__desktop" className={mostrarMenu ? "nav__open" : ""}>
@@ -46,80 +53,106 @@ const Nav = () => {
         <Link to="/contacto">Contacto</Link>
 
         {/* Si hay usuario logueado, muestra el menú de usuario */}
-        {isAuthenticated ? (
-          <>
-          {/* Notificacion*/}
-          <div
-            className="nav__notificaciones-wrapper"
-            onMouseEnter={() => setMostrarNoti(true)}
-            onMouseLeave={() => setMostrarNoti(false)}
-          >
-            <img
-              src="https://cdn0.iconfinder.com/data/icons/mobile-basic-vol-1/32/Notification-256.png"
-              alt="Notificaciones"
-              className="nav__notificacion-icon"
-            />
-            {mostrarNoti && (
-              <div className="nav__notificaciones-dropdown">
-                <div className="nav__notificacion-item">
-                  <span className="nav__notificacion-text">
-                  🎉 Estás registrado al evento *Mix Cultural*.
-                  </span>
+        {isAuthenticated
+          ? (
+            <>
+              {/* Notificacion*/}
+              <div
+                className="nav__notificaciones-wrapper"
+                onMouseEnter={() => {
+                  setMostrarNoti(true);
+                  markAllAsRead(); // marcar como leídas
+                }}
+                onMouseLeave={() => setMostrarNoti(false)}
+              >
+                <div className="nav__notificacion-icon-container">
+                  <img
+                    src="https://cdn0.iconfinder.com/data/icons/mobile-basic-vol-1/32/Notification-256.png"
+                    alt="Notificaciones"
+                    className="nav__notificacion-icon"
+                  />
+                  {unreadCount > 0 && (
+                    <span className="nav__notificacion-badge">
+                      {unreadCount}
+                    </span>
+                  )}
                 </div>
-                  <span className="nav__notificacion-text">
-                  🛏️ Tu reserva está confirmada para el <strong>30/06</strong>.
-                  </span>
+
+                {mostrarNoti && (
+                  <div className="nav__notificaciones-dropdown">
+                    {notifications.length === 0
+                      ? (
+                        <div className="nav__notificacion-item">
+                          <span className="nav__notificacion-text">
+                            Sin notificaciones nuevas
+                          </span>
+                        </div>
+                      )
+                      : (
+                        notifications.map((noti, index) => (
+                          <div key={index} className="nav__notificacion-item">
+                            <span className="nav__notificacion-text">
+                              {noti}
+                            </span>
+                          </div>
+                        ))
+                      )}
+                  </div>
+                )}
               </div>
-            )}
-          </div>  
-          {/* Menu User*/}
-          <div
-            className="nav__usuario-hover-wrapper"
-            onMouseEnter={() => setMostrarMenu(true)}
-            onMouseLeave={() => setMostrarMenu(false)}
-          >
-            <div className="nav__login-icon-link">
+
+              {/* Menu User*/}
+              <div
+                className="nav__usuario-hover-wrapper"
+                onMouseEnter={() => setMostrarMenu(true)}
+                onMouseLeave={() => setMostrarMenu(false)}
+              >
+                <div className="nav__login-icon-link">
+                  <img
+                    src="https://cdn-icons-png.flaticon.com/512/64/64572.png"
+                    alt="Mi cuenta"
+                    className="login-icon-image"
+                  />
+                  <span>Hola, {primerNombre}</span>
+                  {isAdmin && <span className="admin-badge">Admin</span>}
+                </div>
+
+                {mostrarMenu && (
+                  <div className="nav__menu-flotante">
+                    {/* Opciones según el rol */}
+                    <Link
+                      to="/PerfilLa"
+                      className="nav__menu-opcion nav__logout-btn"
+                    >
+                      Mi Perfil
+                    </Link>
+
+                    {/* Opciones específicas para clientes */}
+
+                    <hr className="nav__menu-separador" />
+
+                    <button
+                      onClick={handleLogout}
+                      className="nav__menu-opcion nav__logout-btn"
+                    >
+                      Cerrar Sesión
+                    </button>
+                  </div>
+                )}
+              </div>
+            </>
+          )
+          : (
+            /* Si no hay usuario, mostrar botón de login */
+            <Link to="/login" className="nav__login-icon-link">
               <img
-                src="https://cdn-icons-png.flaticon.com/512/64/64572.png"
-                alt="Mi cuenta"
+                src="https://cdn2.iconfinder.com/data/icons/player-rounded-set/154/user-login-player-function-name-avatar-256.png"
+                alt="Iniciar Sesión"
                 className="login-icon-image"
               />
-              <span>Hola, {primerNombre}</span>
-              {isAdmin && <span className="admin-badge">Admin</span>}
-            </div>
-
-            {mostrarMenu && (
-              <div className="nav__menu-flotante">
-                {/* Opciones según el rol */}
-                <Link to="/PerfilLa" className="nav__menu-opcion nav__logout-btn">
-                  Mi Perfil
-                </Link>
-
-                {/* Opciones específicas para clientes */}
-
-                <hr className="nav__menu-separador" />
-
-                <button
-                  onClick={handleLogout}
-                  className="nav__menu-opcion nav__logout-btn"
-                >
-                  Cerrar Sesión
-                </button>
-              </div>
-            )}
-          </div>
-        </>
-        ) : (
-          /* Si no hay usuario, mostrar botón de login */
-          <Link to="/login" className="nav__login-icon-link">
-            <img
-              src="https://cdn2.iconfinder.com/data/icons/player-rounded-set/154/user-login-player-function-name-avatar-256.png"
-              alt="Iniciar Sesión"
-              className="login-icon-image"
-            />
-            <span>Iniciar Sesión</span>
-          </Link>
-        )}
+              <span>Iniciar Sesión</span>
+            </Link>
+          )}
       </div>
     </nav>
   );
